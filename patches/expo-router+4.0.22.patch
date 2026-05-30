@@ -1,0 +1,88 @@
+diff --git a/node_modules/expo-router/build/fork/createMemoryHistory.js b/node_modules/expo-router/build/fork/createMemoryHistory.js
+index a3a1c7f..c26fbef 100644
+--- a/node_modules/expo-router/build/fork/createMemoryHistory.js
++++ b/node_modules/expo-router/build/fork/createMemoryHistory.js
+@@ -2,6 +2,11 @@
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.createMemoryHistory = void 0;
+ const non_secure_1 = require("nanoid/non-secure");
++// PWA detection: only use hash routing in standalone PWA mode to avoid address bar
++const _IS_PWA = typeof window !== 'undefined' && (
++    window.matchMedia('(display-mode: standalone)').matches ||
++    window.navigator.standalone === true
++);
+ function createMemoryHistory() {
+     let index = 0;
+     let items = [];
+@@ -53,7 +58,8 @@ function createMemoryHistory() {
+             // We don't store state object in history.state because:
+             // - browsers have limits on how big it can be, and we don't control the size
+             // - while not recommended, there could be non-serializable data in state
+-            window.history.pushState({ id }, '', path);
++            // PWA hash routing: only store route in hash when running as installed PWA
++            window.history.pushState({ id }, '', _IS_PWA ? (location.pathname + location.search + '#' + path) : path);
+         },
+         replace({ path, state }) {
+             interrupt();
+@@ -61,7 +67,8 @@ function createMemoryHistory() {
+             // Need to keep the hash part of the path if there was no previous history entry
+             // or the previous history entry had the same path
+             let pathWithHash = path;
+-            const hash = pathWithHash.includes('#') ? '' : location.hash;
++            // PWA hash routing: in PWA mode don't preserve old hash (it's the route, not an anchor)
++            const hash = _IS_PWA ? '' : (pathWithHash.includes('#') ? '' : location.hash);
+             if (!items.length || items.findIndex((item) => item.id === id) < 0) {
+                 // There are two scenarios for creating an array with only one history record:
+                 // - When loaded id not found in the items array, this function by default will replace
+@@ -79,7 +86,8 @@ function createMemoryHistory() {
+                 }
+                 items[index] = { path, state, id };
+             }
+-            window.history.replaceState({ id }, '', pathWithHash);
++            // PWA hash routing: only store route in hash when running as installed PWA
++            window.history.replaceState({ id }, '', _IS_PWA ? (location.pathname + location.search + '#' + pathWithHash) : pathWithHash);
+         },
+         // `history.go(n)` is asynchronous, there are couple of things to keep in mind:
+         // - it won't do anything if we can't go `n` steps, the `popstate` event won't fire.
+diff --git a/node_modules/expo-router/build/fork/useLinking.js b/node_modules/expo-router/build/fork/useLinking.js
+index 27a166c..14736b7 100644
+--- a/node_modules/expo-router/build/fork/useLinking.js
++++ b/node_modules/expo-router/build/fork/useLinking.js
+@@ -33,6 +33,16 @@ const React = __importStar(require("react"));
+ const createMemoryHistory_1 = require("./createMemoryHistory");
+ const getPathFromState_1 = require("./getPathFromState");
+ const serverLocationContext_1 = require("../global-state/serverLocationContext");
++// PWA detection: only use hash routing in standalone PWA mode to avoid address bar
++const _IS_PWA = typeof window !== 'undefined' && (
++    window.matchMedia('(display-mode: standalone)').matches ||
++    window.navigator.standalone === true
++);
++// PWA hash routing: capture the initial hash path at module load time, before any
++// React effects can overwrite window.location.hash via history.replace/pushState.
++const _PWA_INITIAL_HASH_PATH = (_IS_PWA && typeof window !== 'undefined' && window.location.hash.startsWith('#/'))
++    ? window.location.hash.slice(1)
++    : null;
+ /**
+  * Find the matching navigation state that changed between 2 navigation states
+  * e.g.: a -> b -> c -> d and a -> b -> c -> e -> f, if history in b changed, b is the matching state
+@@ -131,7 +141,9 @@ function useLinking(ref, { enabled = true, config, getStateFromPath = native_1.g
+         let value;
+         if (enabledRef.current) {
+             const location = server?.location ?? (typeof window !== 'undefined' ? window.location : undefined);
+-            const path = location ? location.pathname + location.search : undefined;
++            // PWA hash routing: use module-level captured hash (before any effects overwrite it),
++            // falling back to current location for SSR or non-hash URLs
++            const path = location ? (_PWA_INITIAL_HASH_PATH !== null ? _PWA_INITIAL_HASH_PATH : location.pathname + location.search) : undefined;
+             if (path) {
+                 value = getStateFromPathRef.current(path, configRef.current);
+             }
+@@ -160,7 +172,8 @@ function useLinking(ref, { enabled = true, config, getStateFromPath = native_1.g
+                 return;
+             }
+             const { location } = window;
+-            const path = location.pathname + location.search + location.hash;
++            // PWA hash routing: read route from hash only in PWA standalone mode
++            const path = _IS_PWA && location.hash.startsWith('#/') ? location.hash.slice(1) : (location.pathname + location.search + (_IS_PWA ? '' : location.hash));
+             const index = history.index;
+             const previousIndex = previousIndexRef.current ?? 0;
+             previousIndexRef.current = index;

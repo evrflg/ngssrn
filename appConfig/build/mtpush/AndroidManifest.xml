@@ -1,0 +1,89 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.BLUETOOTH"/>
+  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+  <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+  <uses-permission android:name="android.permission.VIBRATE"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <queries>
+    <intent>
+      <action android:name="android.intent.action.VIEW"/>
+      <category android:name="android.intent.category.BROWSABLE"/>
+      <data android:scheme="https"/>
+    </intent>
+  </queries>
+  <application android:name=".MainApplication" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:allowBackup="true" android:theme="@style/AppTheme" android:supportsRtl="true">
+    <meta-data android:name="ENGAGELAB_PRIVATES_APPKEY" android:value="73d6e2725c65485da09666f9" tools:replace="android:value"/>
+    <meta-data android:name="ENGAGELAB_PRIVATES_CHANNEL" android:value="developer" tools:replace="android:value"/>
+    <meta-data android:name="ENGAGELAB_PRIVATES_PROCESS" android:value=":remote" tools:replace="android:value"/>
+    <meta-data android:name="expo.modules.updates.ENABLED" android:value="true"/>
+    <meta-data android:name="expo.modules.updates.EXPO_RUNTIME_VERSION" android:value="@string/expo_runtime_version"/>
+    <meta-data android:name="expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH" android:value="NEVER"/>
+    <meta-data android:name="expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS" android:value="0"/>
+    <meta-data android:name="expo.modules.updates.EXPO_UPDATE_URL" android:value="https://u.expo.dev/7ef8a328-7fed-4412-8954-3c16fba34de6"/>
+    <meta-data android:name="expo.modules.updates.UPDATES_CONFIGURATION_REQUEST_HEADERS_KEY" android:value="{&quot;expo-channel-name&quot;:&quot;ces&quot;}"/>
+    <service android:name="cn.jpush.android.service.PushService" android:enabled="true" android:exported="false">
+      <intent-filter>
+        <action android:name="cn.jpush.android.intent.PushService"/>
+        <category android:name="com.ifG4jW.sa0vxY.F001"/>
+      </intent-filter>
+    </service>
+    <service android:name="cn.jpush.android.service.DaemonService" android:enabled="true" android:exported="true">
+      <intent-filter>
+        <action android:name="cn.jpush.android.intent.DaemonService"/>
+        <category android:name="com.ifG4jW.sa0vxY.F001"/>
+      </intent-filter>
+    </service>
+    <activity android:name=".MainActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|uiMode|locale|layoutDirection" android:launchMode="singleTask" android:windowSoftInputMode="adjustResize" android:theme="@style/Theme.App.SplashScreen" android:exported="true" android:screenOrientation="portrait">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="mlang-ng-rn"/>
+        <data android:scheme="com.ifG4jW.sa0vxY.F001"/>
+      </intent-filter>
+      <intent-filter android:autoVerify="true">
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="http" android:host="ngss-app.go.link"/>
+        <data android:scheme="https" android:host="ngss-app.go.link"/>
+      </intent-filter>
+    </activity>
+    <activity android:name="cn.jpush.android.ui.PushActivity" android:exported="false" android:theme="@android:style/Theme.Translucent.NoTitleBar" tools:replace="android:exported,android:theme">
+      <intent-filter>
+        <action android:name="cn.jpush.android.ui.PushActivity"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="com.ifG4jW.sa0vxY.F001"/>
+      </intent-filter>
+    </activity>
+    <activity android:name="cn.jpush.android.ui.PopWinActivity" android:exported="false" android:theme="@android:style/Theme.Translucent.NoTitleBar" tools:replace="android:exported,android:theme"/>
+    <receiver android:name="cn.jpush.android.service.PushReceiver" android:enabled="true" android:exported="true" tools:replace="android:exported">
+      <intent-filter android:priority="1000">
+        <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+        <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+        <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+        <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+        <action android:name="cn.jpush.android.intent.CONNECTION"/>
+        <category android:name="com.ifG4jW.sa0vxY.F001"/>
+      </intent-filter>
+    </receiver>
+    <receiver android:name="cn.jpush.android.service.AlarmReceiver" android:enabled="true" android:exported="false"/>
+    <receiver android:name="cn.jpush.android.service.LocalReceiver"/>
+  </application>
+</manifest>

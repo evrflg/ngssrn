@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Web：react-native-web 的 TextInput 等会渲染为原生 input/textarea，
+ * 浏览器默认 :focus 蓝色 outline。全局关闭，与各页样式解耦。
+ * （键盘用户若需可见焦点，可后续对关键按钮单独加 ring）
+ */
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+select:focus,
+select:focus-visible {
+  outline: none !important;
+}
+
+/**
+ * 登录/注册：Chrome/Safari「记住密码」会给 input 强制浅蓝底。
+ * 用与输入区一致的 inset shadow 盖住（--log-reg-input-fill 在 LoginArea/RegisterArea 上按主题注入）。
+ */
+.log-reg-input-host input:-webkit-autofill,
+.log-reg-input-host input:-webkit-autofill:hover,
+.log-reg-input-host input:-webkit-autofill:focus,
+.log-reg-input-host textarea:-webkit-autofill,
+.log-reg-input-host textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: inherit !important;
+  caret-color: inherit;
+  box-shadow: 0 0 0 1000px var(--log-reg-input-fill, #ffffff) inset !important;
+  transition: background-color 99999s ease-out !important;
+}
+
+.rmc-picker,
+.rmc-multi-picker {
+  height: 238px;
+  /*34*7*/
+}
+
+.rmc-multi-picker {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.rmc-picker-item {
+  font-size: 16px;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 10px;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #9b9b9b;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rmc-picker {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  -webkit-box-flex: 1;
+  flex: 1;
+  text-align: center;
+}
+
+.rmc-picker-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 3;
+  /* background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.95)), to(rgba(255, 255, 255, 0.6))), -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.95)), to(rgba(255, 255, 255, 0.6))); */
+  /* background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)); */
+  background-position: top, bottom;
+  background-size: 100% 204px;
+  background-repeat: no-repeat;
+  background: transparent;
+}
+
+.rmc-picker-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.rmc-picker-indicator {
+  box-sizing: border-box;
+  width: 100%;
+  height: 34px;
+  position: absolute;
+  left: 0;
+  top: 102px;
+  z-index: 3;
+  border-top: 1PX solid #ddd;
+  border-bottom: 1PX solid #ddd;
+}
+
+.wave-bg {
+  background: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 1440 390' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0,400 L 0,150 C 135.92857142857144,180.28571428571428 271.8571428571429,210.57142857142858 400,217 C 528.1428571428571,223.42857142857142 648.5,205.99999999999997 768,187 C 887.5,168.00000000000003 1006.1428571428571,147.42857142857144 1118,141 C 1229.857142857143,134.57142857142856 1334.9285714285716,142.28571428571428 1440,150 L 1440,400 L 0,400 Z' fill='%23d8aa33' fill-opacity='1' transform='scale(-1,-1) translate(-1440,-390)'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.turntable-box.type-is1 .turntable-each--bg {
+  border-left: thin solid #a19696;
+}
+
+.turntable-box.type-is2 .turntable-each--bg {
+  border-left: 2px solid #ffc300;
+}
+
+.turntable-box.type-is3 .turntable-each--bg {
+  border-left: thin solid #ff00f7;
+}
+
+.turntable-box.event-is3 .turntable-each--bg {
+  border-left: unset
+}
+
+.turntable-box.event-is5 .turntable-each--bg {
+  border-left: unset
+}
+
+.turntable-box.event-is6 .turntable-each--bg {
+  border-left: unset
+}
+
+/* 隐藏滚动条，保留滚动/滚轮（与 className hide-scrollbar 配合，供 RN Web 等使用） */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}

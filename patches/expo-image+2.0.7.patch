@@ -1,0 +1,85 @@
+diff --git a/node_modules/expo-image/ios/ImageView.swift b/node_modules/expo-image/ios/ImageView.swift
+index 1111111..2222222 100644
+--- a/node_modules/expo-image/ios/ImageView.swift
++++ b/node_modules/expo-image/ios/ImageView.swift
+
+@@ -60,12 +60,18 @@
+     didSet {
+       if oldValue != nil && recyclingKey != oldValue {
+         sdImageView.image = nil
++        lastSuccessfulSourceURI = nil
+       }
+     }
+   }
+ 
+   var autoplay: Bool = true
+ 
++  /// [ngss-rn] Debounce + skip duplicate reload for same animated source (bounds/props double-fire).
++  private var reloadDebounceWorkItem: DispatchWorkItem?
++  /// Last source URI that successfully displayed a non-placeholder image (see reloadNow skip guard).
++  private var lastSuccessfulSourceURI: URL?
++
+   // MARK: - Events
+ 
+   let onLoadStart = EventDispatcher()
+@@ -83,7 +89,9 @@
+   public override var bounds: CGRect {
+     didSet {
+       // Reload the image when the bounds size has changed and is not empty.
+-      if oldValue.size != bounds.size && bounds.size != .zero {
++      let dw = abs(oldValue.size.width - bounds.size.width)
++      let dh = abs(oldValue.size.height - bounds.size.height)
++      if (dw > 0.5 || dh > 0.5), bounds.size != .zero {
+         reload()
+       }
+     }
+@@ -106,6 +114,8 @@
+ 
+   public override func didMoveToWindow() {
+     if window == nil {
++      reloadDebounceWorkItem?.cancel()
++      reloadDebounceWorkItem = nil
+       // Cancel pending requests when the view is unmounted.
+       cancelPendingOperation()
+     } else if !bounds.isEmpty {
+@@ -119,6 +129,18 @@
+   // MARK: - Implementation
+ 
+   func reload() {
++    reloadDebounceWorkItem?.cancel()
++    let work = DispatchWorkItem { [weak self] in
++      guard let self else { return }
++      self.reloadDebounceWorkItem = nil
++      self.reloadNow()
++    }
++    reloadDebounceWorkItem = work
++    // One ~frame + layout settle; merges a second reload from bounds / mask without visibly slowing first paint much.
++    DispatchQueue.main.asyncAfter(deadline: .now() + 0.045, execute: work)
++  }
++
++  private func reloadNow() {
+     if isViewEmpty {
+       displayPlaceholderIfNecessary()
+     }
+@@ -126,6 +148,10 @@
+       displayPlaceholderIfNecessary()
+       return
+     }
++    // Same URI already showing an animated image: second reload only re-assigns image and restarts APNG from frame 0.
++    if let uri = source.uri, uri == lastSuccessfulSourceURI, let img = sdImageView.image, img.sd_isAnimated {
++      return
++    }
+     if sdImageView.image == nil {
+       sdImageView.contentMode = contentFit.toContentMode()
+     }
+@@ -413,6 +439,10 @@
+       sdImageView.image = image
+     }
+ 
++    if !isPlaceholder, image != nil, let uri = bestSource?.uri {
++      lastSuccessfulSourceURI = uri
++    }
++
+     if !isPlaceholder {
+       onDisplay()
+     }

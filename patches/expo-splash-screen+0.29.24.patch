@@ -1,0 +1,1243 @@
+diff --git a/node_modules/expo-splash-screen/.babelrc b/node_modules/expo-splash-screen/.babelrc
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/.eslintrc.js b/node_modules/expo-splash-screen/.eslintrc.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/CHANGELOG.md b/node_modules/expo-splash-screen/CHANGELOG.md
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/README.md b/node_modules/expo-splash-screen/README.md
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/android/.gradle/8.9/checksums/checksums.lock b/node_modules/expo-splash-screen/android/.gradle/8.9/checksums/checksums.lock
+new file mode 100755
+index 0000000..03ba357
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/.gradle/8.9/checksums/checksums.lock differ
+diff --git a/node_modules/expo-splash-screen/android/.gradle/8.9/dependencies-accessors/gc.properties b/node_modules/expo-splash-screen/android/.gradle/8.9/dependencies-accessors/gc.properties
+new file mode 100755
+index 0000000..e69de29
+diff --git a/node_modules/expo-splash-screen/android/.gradle/8.9/fileChanges/last-build.bin b/node_modules/expo-splash-screen/android/.gradle/8.9/fileChanges/last-build.bin
+new file mode 100755
+index 0000000..f76dd23
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/.gradle/8.9/fileChanges/last-build.bin differ
+diff --git a/node_modules/expo-splash-screen/android/.gradle/8.9/fileHashes/fileHashes.lock b/node_modules/expo-splash-screen/android/.gradle/8.9/fileHashes/fileHashes.lock
+new file mode 100755
+index 0000000..d96b1f6
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/.gradle/8.9/fileHashes/fileHashes.lock differ
+diff --git a/node_modules/expo-splash-screen/android/.gradle/8.9/gc.properties b/node_modules/expo-splash-screen/android/.gradle/8.9/gc.properties
+new file mode 100755
+index 0000000..e69de29
+diff --git a/node_modules/expo-splash-screen/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock b/node_modules/expo-splash-screen/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+new file mode 100755
+index 0000000..19558a9
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock differ
+diff --git a/node_modules/expo-splash-screen/android/.gradle/buildOutputCleanup/cache.properties b/node_modules/expo-splash-screen/android/.gradle/buildOutputCleanup/cache.properties
+new file mode 100755
+index 0000000..0c46d5b
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/.gradle/buildOutputCleanup/cache.properties
+@@ -0,0 +1,2 @@
++#Thu Apr 16 14:11:49 MUT 2026
++gradle.version=8.9
+diff --git a/node_modules/expo-splash-screen/android/.gradle/vcs-1/gc.properties b/node_modules/expo-splash-screen/android/.gradle/vcs-1/gc.properties
+new file mode 100755
+index 0000000..e69de29
+diff --git a/node_modules/expo-splash-screen/android/.project b/node_modules/expo-splash-screen/android/.project
+new file mode 100755
+index 0000000..131223c
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/.project
+@@ -0,0 +1,28 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<projectDescription>
++	<name>expo-splash-screen</name>
++	<comment>Project expo-splash-screen created by Buildship.</comment>
++	<projects>
++	</projects>
++	<buildSpec>
++		<buildCommand>
++			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
++			<arguments>
++			</arguments>
++		</buildCommand>
++	</buildSpec>
++	<natures>
++		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
++	</natures>
++	<filteredResources>
++		<filter>
++			<id>1763988022961</id>
++			<name></name>
++			<type>30</type>
++			<matcher>
++				<id>org.eclipse.core.resources.regexFilterMatcher</id>
++				<arguments>node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
++			</matcher>
++		</filter>
++	</filteredResources>
++</projectDescription>
+diff --git a/node_modules/expo-splash-screen/android/bin/.gradle/8.9/checksums/checksums.lock b/node_modules/expo-splash-screen/android/bin/.gradle/8.9/checksums/checksums.lock
+new file mode 100755
+index 0000000..03ba357
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/bin/.gradle/8.9/checksums/checksums.lock differ
+diff --git a/node_modules/expo-splash-screen/android/bin/.gradle/8.9/dependencies-accessors/gc.properties b/node_modules/expo-splash-screen/android/bin/.gradle/8.9/dependencies-accessors/gc.properties
+new file mode 100755
+index 0000000..e69de29
+diff --git a/node_modules/expo-splash-screen/android/bin/.gradle/8.9/fileChanges/last-build.bin b/node_modules/expo-splash-screen/android/bin/.gradle/8.9/fileChanges/last-build.bin
+new file mode 100755
+index 0000000..f76dd23
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/bin/.gradle/8.9/fileChanges/last-build.bin differ
+diff --git a/node_modules/expo-splash-screen/android/bin/.gradle/8.9/fileHashes/fileHashes.lock b/node_modules/expo-splash-screen/android/bin/.gradle/8.9/fileHashes/fileHashes.lock
+new file mode 100755
+index 0000000..d96b1f6
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/bin/.gradle/8.9/fileHashes/fileHashes.lock differ
+diff --git a/node_modules/expo-splash-screen/android/bin/.gradle/8.9/gc.properties b/node_modules/expo-splash-screen/android/bin/.gradle/8.9/gc.properties
+new file mode 100755
+index 0000000..e69de29
+diff --git a/node_modules/expo-splash-screen/android/bin/.gradle/buildOutputCleanup/buildOutputCleanup.lock b/node_modules/expo-splash-screen/android/bin/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+new file mode 100755
+index 0000000..19558a9
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/bin/.gradle/buildOutputCleanup/buildOutputCleanup.lock differ
+diff --git a/node_modules/expo-splash-screen/android/bin/.gradle/buildOutputCleanup/cache.properties b/node_modules/expo-splash-screen/android/bin/.gradle/buildOutputCleanup/cache.properties
+new file mode 100755
+index 0000000..0c46d5b
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/bin/.gradle/buildOutputCleanup/cache.properties
+@@ -0,0 +1,2 @@
++#Thu Apr 16 14:11:49 MUT 2026
++gradle.version=8.9
+diff --git a/node_modules/expo-splash-screen/android/bin/.gradle/vcs-1/gc.properties b/node_modules/expo-splash-screen/android/bin/.gradle/vcs-1/gc.properties
+new file mode 100755
+index 0000000..e69de29
+diff --git a/node_modules/expo-splash-screen/android/bin/src/main/AndroidManifest.xml b/node_modules/expo-splash-screen/android/bin/src/main/AndroidManifest.xml
+new file mode 100755
+index 0000000..bdae66c
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/bin/src/main/AndroidManifest.xml
+@@ -0,0 +1,2 @@
++<manifest>
++</manifest>
+diff --git a/node_modules/expo-splash-screen/android/bin/src/main/java/expo/modules/splashscreen/SplashScreenManager.kt b/node_modules/expo-splash-screen/android/bin/src/main/java/expo/modules/splashscreen/SplashScreenManager.kt
+new file mode 100755
+index 0000000..1ad7158
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/bin/src/main/java/expo/modules/splashscreen/SplashScreenManager.kt
+@@ -0,0 +1,86 @@
++package expo.modules.splashscreen
++
++import android.app.Activity
++import android.os.Build
++import android.view.View
++import android.view.ViewTreeObserver.OnPreDrawListener
++import android.view.animation.AccelerateInterpolator
++import android.window.SplashScreenView
++import androidx.core.splashscreen.SplashScreen
++import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
++import com.facebook.react.bridge.ReactMarker
++import com.facebook.react.bridge.ReactMarkerConstants
++
++object SplashScreenManager {
++  private var keepSplashScreenOnScreen = true
++  var preventAutoHideCalled: Boolean = false
++  private lateinit var splashScreen: SplashScreen
++
++  private val contentAppearedListener = ReactMarker.MarkerListener { name, _, _ ->
++    if (name == ReactMarkerConstants.CONTENT_APPEARED) {
++      if (!preventAutoHideCalled) {
++        hide()
++      }
++    }
++  }
++
++  private fun configureSplashScreen(options: SplashScreenOptions = SplashScreenOptions()) {
++    // If loaded in a headless JS context we might not have initialized the splash screen
++    // lateinit variable, so let's check to be nice citizens
++    if (!::splashScreen.isInitialized) {
++      return
++    }
++
++    val duration = options.duration
++
++    splashScreen.setOnExitAnimationListener { splashScreenViewProvider ->
++      val splashScreenView = splashScreenViewProvider.view
++      splashScreenView
++        .animate()
++        .setDuration(duration)
++        .alpha(0.0f)
++        .setInterpolator(AccelerateInterpolator())
++        .withEndAction {
++          if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
++            splashScreenViewProvider.remove();
++          } else {
++            // Avoid calling applyThemesSystemBarAppearance
++            (splashScreenView as SplashScreenView).remove();
++          }
++        }.start()
++    }
++  }
++
++  fun registerOnActivity(activity: Activity) {
++    splashScreen = activity.installSplashScreen()
++    ReactMarker.addListener(contentAppearedListener)
++
++    // Using `splashScreen.setKeepOnScreenCondition()` does not work on apis below 33
++    // so we need to implement this ourselves.
++    val contentView = activity.findViewById<View>(android.R.id.content)
++    val observer = contentView.viewTreeObserver
++    observer.addOnPreDrawListener(object : OnPreDrawListener {
++      override fun onPreDraw(): Boolean {
++        if (keepSplashScreenOnScreen) {
++          return false
++        }
++        contentView.viewTreeObserver.removeOnPreDrawListener(this)
++        return true
++      }
++    })
++
++    configureSplashScreen()
++  }
++
++  fun hide() {
++    keepSplashScreenOnScreen = false
++  }
++
++  fun setSplashScreenOptions(options: SplashScreenOptions) {
++    configureSplashScreen(options)
++  }
++
++  fun unregisterContentAppearedListener() {
++    ReactMarker.removeListener(contentAppearedListener)
++  }
++}
+diff --git a/node_modules/expo-splash-screen/android/bin/src/main/java/expo/modules/splashscreen/SplashScreenModule.kt b/node_modules/expo-splash-screen/android/bin/src/main/java/expo/modules/splashscreen/SplashScreenModule.kt
+new file mode 100755
+index 0000000..ad9bdf1
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/bin/src/main/java/expo/modules/splashscreen/SplashScreenModule.kt
+@@ -0,0 +1,62 @@
++package expo.modules.splashscreen
++
++import expo.modules.kotlin.modules.Module
++import expo.modules.kotlin.modules.ModuleDefinition
++import expo.modules.kotlin.records.Field
++import expo.modules.kotlin.records.Record
++import kotlinx.coroutines.launch
++
++class SplashScreenOptions : Record {
++  @Field
++  val duration: Long = 400L
++
++  @Field
++  var fade: Boolean = true
++}
++
++class SplashScreenModule : Module() {
++  private var userControlledAutoHideEnabled: Boolean = false
++
++  override fun definition() = ModuleDefinition {
++    Name("ExpoSplashScreen")
++
++    AsyncFunction<Boolean>("preventAutoHideAsync") {
++      // The user has manually invoked prevent autohide, this is used to allow libraries
++      // such as expo-router to know whether it's safe to hide or if they should wait for
++      // the user to do it.
++      userControlledAutoHideEnabled = true
++      SplashScreenManager.preventAutoHideCalled = true
++      return@AsyncFunction true
++    }
++
++    AsyncFunction<Unit>("internalPreventAutoHideAsync") {
++      SplashScreenManager.preventAutoHideCalled = true
++    }
++
++    Function("setOptions") { options: SplashScreenOptions ->
++      // Needs to run on the main thread on apis below 33
++      appContext.mainQueue.launch {
++        SplashScreenManager.setSplashScreenOptions(options)
++      }
++    }
++
++    Function("hide") {
++      SplashScreenManager.hide()
++    }
++
++    // For backwards compatibility
++    AsyncFunction("hideAsync") {
++      SplashScreenManager.hide()
++    }
++
++    AsyncFunction("internalMaybeHideAsync") {
++      if (!userControlledAutoHideEnabled) {
++        SplashScreenManager.hide()
++      }
++    }
++
++    OnDestroy {
++      SplashScreenManager.unregisterContentAppearedListener()
++    }
++  }
++}
+diff --git a/node_modules/expo-splash-screen/android/bin/src/main/res/values/colors_splashscreen.xml b/node_modules/expo-splash-screen/android/bin/src/main/res/values/colors_splashscreen.xml
+new file mode 100755
+index 0000000..2078743
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/bin/src/main/res/values/colors_splashscreen.xml
+@@ -0,0 +1,6 @@
++<!--
++    Settings in this file should/will be overridden by specific app's resources.
++-->
++<resources>
++  <color name="splashscreen_background">#FFFFFF</color>
++</resources>
+diff --git a/node_modules/expo-splash-screen/android/build.gradle b/node_modules/expo-splash-screen/android/build.gradle
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/2389086a8cab7ee84e45c31e8353365a/results.bin b/node_modules/expo-splash-screen/android/build/.transforms/2389086a8cab7ee84e45c31e8353365a/results.bin
+new file mode 100644
+index 0000000..0d259dd
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/.transforms/2389086a8cab7ee84e45c31e8353365a/results.bin
+@@ -0,0 +1 @@
++o/classes
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/2389086a8cab7ee84e45c31e8353365a/transformed/classes/classes_dex/classes.dex b/node_modules/expo-splash-screen/android/build/.transforms/2389086a8cab7ee84e45c31e8353365a/transformed/classes/classes_dex/classes.dex
+new file mode 100644
+index 0000000..92dc9c0
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/2389086a8cab7ee84e45c31e8353365a/transformed/classes/classes_dex/classes.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/results.bin b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/results.bin
+new file mode 100644
+index 0000000..7ed749e
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/results.bin
+@@ -0,0 +1 @@
++o/bundleLibRuntimeToDirDebug
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/BuildConfig.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/BuildConfig.dex
+new file mode 100644
+index 0000000..68e386c
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/BuildConfig.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenManager$registerOnActivity$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenManager$registerOnActivity$1.dex
+new file mode 100644
+index 0000000..0c2132e
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenManager$registerOnActivity$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenManager.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenManager.dex
+new file mode 100644
+index 0000000..497f275
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenManager.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$1$3$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$1$3$1.dex
+new file mode 100644
+index 0000000..96e6067
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$1$3$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$1.dex
+new file mode 100644
+index 0000000..4977677
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$2.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$2.dex
+new file mode 100644
+index 0000000..3b4c277
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$2.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$1.dex
+new file mode 100644
+index 0000000..b69b69a
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$2.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$2.dex
+new file mode 100644
+index 0000000..f3ec4f5
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$2.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$1.dex
+new file mode 100644
+index 0000000..4e91922
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$2.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$2.dex
+new file mode 100644
+index 0000000..b6074c0
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$2.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$FunctionWithoutArgs$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$FunctionWithoutArgs$1.dex
+new file mode 100644
+index 0000000..26f8c85
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$FunctionWithoutArgs$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$OnDestroy$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$OnDestroy$1.dex
+new file mode 100644
+index 0000000..4031a03
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$OnDestroy$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule.dex
+new file mode 100644
+index 0000000..9c680ab
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenOptions.dex b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenOptions.dex
+new file mode 100644
+index 0000000..f7f661c
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenOptions.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin
+new file mode 100644
+index 0000000..601f245
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/6f906b9e9c45c2c99ea4dd109f2775b5/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/cea63c4f43297864d88e8f2e41d7b617/results.bin b/node_modules/expo-splash-screen/android/build/.transforms/cea63c4f43297864d88e8f2e41d7b617/results.bin
+new file mode 100644
+index 0000000..0d259dd
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/.transforms/cea63c4f43297864d88e8f2e41d7b617/results.bin
+@@ -0,0 +1 @@
++o/classes
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/cea63c4f43297864d88e8f2e41d7b617/transformed/classes/classes_dex/classes.dex b/node_modules/expo-splash-screen/android/build/.transforms/cea63c4f43297864d88e8f2e41d7b617/transformed/classes/classes_dex/classes.dex
+new file mode 100644
+index 0000000..db5ac94
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/cea63c4f43297864d88e8f2e41d7b617/transformed/classes/classes_dex/classes.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/results.bin b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/results.bin
+new file mode 100644
+index 0000000..7ed749e
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/results.bin
+@@ -0,0 +1 @@
++o/bundleLibRuntimeToDirDebug
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/BuildConfig.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/BuildConfig.dex
+new file mode 100644
+index 0000000..68e386c
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/BuildConfig.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenManager$registerOnActivity$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenManager$registerOnActivity$1.dex
+new file mode 100644
+index 0000000..0c2132e
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenManager$registerOnActivity$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenManager.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenManager.dex
+new file mode 100644
+index 0000000..2e17f03
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenManager.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$1$3$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$1$3$1.dex
+new file mode 100644
+index 0000000..96e6067
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$1$3$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$1.dex
+new file mode 100644
+index 0000000..4977677
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$2.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$2.dex
+new file mode 100644
+index 0000000..3b4c277
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$2.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$1.dex
+new file mode 100644
+index 0000000..b69b69a
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$2.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$2.dex
+new file mode 100644
+index 0000000..f3ec4f5
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$2.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$1.dex
+new file mode 100644
+index 0000000..4e91922
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$2.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$2.dex
+new file mode 100644
+index 0000000..b6074c0
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$2.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$FunctionWithoutArgs$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$FunctionWithoutArgs$1.dex
+new file mode 100644
+index 0000000..26f8c85
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$FunctionWithoutArgs$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$OnDestroy$1.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$OnDestroy$1.dex
+new file mode 100644
+index 0000000..4031a03
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$OnDestroy$1.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule.dex
+new file mode 100644
+index 0000000..9c680ab
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenModule.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenOptions.dex b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenOptions.dex
+new file mode 100644
+index 0000000..f7f661c
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/splashscreen/SplashScreenOptions.dex differ
+diff --git a/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin
+new file mode 100644
+index 0000000..601f245
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/.transforms/dd55f55d9140b32a1e0b2fe675f247be/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin differ
+diff --git a/node_modules/expo-splash-screen/android/build/generated/source/buildConfig/debug/expo/modules/splashscreen/BuildConfig.java b/node_modules/expo-splash-screen/android/build/generated/source/buildConfig/debug/expo/modules/splashscreen/BuildConfig.java
+new file mode 100644
+index 0000000..96a05e2
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/generated/source/buildConfig/debug/expo/modules/splashscreen/BuildConfig.java
+@@ -0,0 +1,10 @@
++/**
++ * Automatically generated file. DO NOT MODIFY
++ */
++package expo.modules.splashscreen;
++
++public final class BuildConfig {
++  public static final boolean DEBUG = Boolean.parseBoolean("true");
++  public static final String LIBRARY_PACKAGE_NAME = "expo.modules.splashscreen";
++  public static final String BUILD_TYPE = "debug";
++}
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml b/node_modules/expo-splash-screen/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml
+new file mode 100644
+index 0000000..8bdc82d
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="expo.modules.splashscreen" >
++
++    <uses-sdk android:minSdkVersion="24" />
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json b/node_modules/expo-splash-screen/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json
+new file mode 100644
+index 0000000..b6a1f6a
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json
+@@ -0,0 +1,18 @@
++{
++  "version": 3,
++  "artifactType": {
++    "type": "AAPT_FRIENDLY_MERGED_MANIFESTS",
++    "kind": "Directory"
++  },
++  "applicationId": "expo.modules.splashscreen",
++  "variantName": "debug",
++  "elements": [
++    {
++      "type": "SINGLE",
++      "filters": [],
++      "attributes": [],
++      "outputFile": "AndroidManifest.xml"
++    }
++  ],
++  "elementType": "File"
++}
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties b/node_modules/expo-splash-screen/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties
+new file mode 100644
+index 0000000..1211b1e
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties
+@@ -0,0 +1,6 @@
++aarFormatVersion=1.0
++aarMetadataVersion=1.0
++minCompileSdk=1
++minCompileSdkExtension=0
++minAndroidGradlePluginVersion=1.0.0
++coreLibraryDesugaringEnabled=false
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json b/node_modules/expo-splash-screen/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json
+new file mode 100644
+index 0000000..9e26dfe
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json
+@@ -0,0 +1 @@
++{}
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar b/node_modules/expo-splash-screen/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar
+new file mode 100644
+index 0000000..509b9ce
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar b/node_modules/expo-splash-screen/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar
+new file mode 100644
+index 0000000..b97aee8
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt b/node_modules/expo-splash-screen/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt
+new file mode 100644
+index 0000000..aaa19e3
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt
+@@ -0,0 +1 @@
++int color splashscreen_background 0x0
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties b/node_modules/expo-splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
+new file mode 100644
+index 0000000..80fb906
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
+@@ -0,0 +1 @@
++#Fri Apr 17 11:24:57 MUT 2026
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values/values.xml b/node_modules/expo-splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values/values.xml
+new file mode 100644
+index 0000000..0f1ee0c
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values/values.xml
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="splashscreen_background">#FFFFFF</color>
++</resources>
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml b/node_modules/expo-splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
+new file mode 100644
+index 0000000..7776e9e
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/res"><file path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/res/values/colors_splashscreen.xml" qualifiers=""><color name="splashscreen_background">#FFFFFF</color></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/build/generated/res/resValues/debug"/></dataSet><mergedItems/></merger>
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml b/node_modules/expo-splash-screen/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
+new file mode 100644
+index 0000000..76a265a
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/jniLibs"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/debug/jniLibs"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/incremental/mergeDebugShaders/merger.xml b/node_modules/expo-splash-screen/android/build/intermediates/incremental/mergeDebugShaders/merger.xml
+new file mode 100644
+index 0000000..0a76160
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/incremental/mergeDebugShaders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/shaders"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/debug/shaders"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/incremental/packageDebugAssets/merger.xml b/node_modules/expo-splash-screen/android/build/intermediates/incremental/packageDebugAssets/merger.xml
+new file mode 100644
+index 0000000..ff926b6
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/incremental/packageDebugAssets/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/assets"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/debug/assets"/></dataSet><dataSet config="generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/build/intermediates/shader_assets/debug/compileDebugShaders/out"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/java_res/debug/processDebugJavaRes/out/META-INF/expo-splash-screen_debug.kotlin_module b/node_modules/expo-splash-screen/android/build/intermediates/java_res/debug/processDebugJavaRes/out/META-INF/expo-splash-screen_debug.kotlin_module
+new file mode 100644
+index 0000000..1e9f2ca
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/java_res/debug/processDebugJavaRes/out/META-INF/expo-splash-screen_debug.kotlin_module differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/expo/modules/splashscreen/BuildConfig.class b/node_modules/expo-splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/expo/modules/splashscreen/BuildConfig.class
+new file mode 100644
+index 0000000..56444da
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/expo/modules/splashscreen/BuildConfig.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt b/node_modules/expo-splash-screen/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt
+new file mode 100644
+index 0000000..d573084
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt
+@@ -0,0 +1,3 @@
++R_DEF: Internal format may change without notice
++local
++color splashscreen_background
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt b/node_modules/expo-splash-screen/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt
+new file mode 100644
+index 0000000..4c16195
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt
+@@ -0,0 +1,7 @@
++1<?xml version="1.0" encoding="utf-8"?>
++2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++3    package="expo.modules.splashscreen" >
++4
++5    <uses-sdk android:minSdkVersion="24" />
++6
++7</manifest>
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml b/node_modules/expo-splash-screen/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
+new file mode 100644
+index 0000000..8bdc82d
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="expo.modules.splashscreen" >
++
++    <uses-sdk android:minSdkVersion="24" />
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json b/node_modules/expo-splash-screen/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json
+new file mode 100644
+index 0000000..0637a08
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json
+@@ -0,0 +1 @@
++[]
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt b/node_modules/expo-splash-screen/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt
+new file mode 100644
+index 0000000..08f4ebe
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt
+@@ -0,0 +1 @@
++0 Warning/Error
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml b/node_modules/expo-splash-screen/android/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml
+new file mode 100644
+index 0000000..0f1ee0c
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="splashscreen_background">#FFFFFF</color>
++</resources>
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/META-INF/expo-splash-screen_debug.kotlin_module b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/META-INF/expo-splash-screen_debug.kotlin_module
+new file mode 100644
+index 0000000..1e9f2ca
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/META-INF/expo-splash-screen_debug.kotlin_module differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/BuildConfig.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/BuildConfig.class
+new file mode 100644
+index 0000000..56444da
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/BuildConfig.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenManager$registerOnActivity$1.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenManager$registerOnActivity$1.class
+new file mode 100644
+index 0000000..b6cba0b
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenManager$registerOnActivity$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenManager.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenManager.class
+new file mode 100644
+index 0000000..885aa70
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenManager.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$1$3$1.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$1$3$1.class
+new file mode 100644
+index 0000000..6b287a1
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$1$3$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$1.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$1.class
+new file mode 100644
+index 0000000..c7dac96
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$2.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$2.class
+new file mode 100644
+index 0000000..66a6e0d
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$2.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$1.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$1.class
+new file mode 100644
+index 0000000..34c0fc3
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$2.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$2.class
+new file mode 100644
+index 0000000..e1e5ac8
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$2.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$1.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$1.class
+new file mode 100644
+index 0000000..56fba1e
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$2.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$2.class
+new file mode 100644
+index 0000000..852d3f8
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$2.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$FunctionWithoutArgs$1.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$FunctionWithoutArgs$1.class
+new file mode 100644
+index 0000000..2d528e9
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$FunctionWithoutArgs$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$OnDestroy$1.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$OnDestroy$1.class
+new file mode 100644
+index 0000000..634ad69
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$OnDestroy$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule.class
+new file mode 100644
+index 0000000..a4967c9
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenModule.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenOptions.class b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenOptions.class
+new file mode 100644
+index 0000000..876765c
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/splashscreen/SplashScreenOptions.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar
+new file mode 100644
+index 0000000..f6e633c
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar differ
+diff --git a/node_modules/expo-splash-screen/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt b/node_modules/expo-splash-screen/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
+new file mode 100644
+index 0000000..d8fb55f
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
+@@ -0,0 +1,2 @@
++expo.modules.splashscreen
++color splashscreen_background
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab
+new file mode 100644
+index 0000000..25d9afd
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream
+new file mode 100644
+index 0000000..4676474
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len
+new file mode 100644
+index 0000000..68b143b
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at
+new file mode 100644
+index 0000000..29d4742
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i
+new file mode 100644
+index 0000000..6e9b308
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab
+new file mode 100644
+index 0000000..f550110
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream
+new file mode 100644
+index 0000000..358e1f0
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len
+new file mode 100644
+index 0000000..701a27c
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len
+new file mode 100644
+index 0000000..a9f80ae
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at
+new file mode 100644
+index 0000000..fe23964
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i
+new file mode 100644
+index 0000000..52b6852
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab
+new file mode 100644
+index 0000000..e26f326
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream
+new file mode 100644
+index 0000000..358e1f0
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len
+new file mode 100644
+index 0000000..701a27c
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len
+new file mode 100644
+index 0000000..a9f80ae
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at
+new file mode 100644
+index 0000000..0d71d61
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i
+new file mode 100644
+index 0000000..52b6852
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab
+new file mode 100644
+index 0000000..f00773f
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream
+new file mode 100644
+index 0000000..fa2faed
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len
+new file mode 100644
+index 0000000..e1b7d79
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len
+new file mode 100644
+index 0000000..6f677df
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at
+new file mode 100644
+index 0000000..4296244
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i
+new file mode 100644
+index 0000000..5af1638
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab
+new file mode 100644
+index 0000000..acfc3b7
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream
+new file mode 100644
+index 0000000..254d88f
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len
+new file mode 100644
+index 0000000..a9f80ae
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len
+new file mode 100644
+index 0000000..93a595b
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at
+new file mode 100644
+index 0000000..4839567
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i
+new file mode 100644
+index 0000000..446db49
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab
+new file mode 100644
+index 0000000..4fa12d2
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream
+new file mode 100644
+index 0000000..4676474
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len
+new file mode 100644
+index 0000000..68b143b
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at
+new file mode 100644
+index 0000000..541f6c6
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i
+new file mode 100644
+index 0000000..6e9b308
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab
+new file mode 100644
+index 0000000..c22b7a6
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream
+new file mode 100644
+index 0000000..7262ef0
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len
+new file mode 100644
+index 0000000..b9d571f
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at
+new file mode 100644
+index 0000000..3b71407
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i
+new file mode 100644
+index 0000000..e71fada
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab
+new file mode 100644
+index 0000000..1804d57
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream
+new file mode 100644
+index 0000000..f8bfcf7
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len
+new file mode 100644
+index 0000000..8790089
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at
+new file mode 100644
+index 0000000..1416f69
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i
+new file mode 100644
+index 0000000..427becd
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab
+new file mode 100644
+index 0000000..2ceb12b
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab
+@@ -0,0 +1,2 @@
++2
++0
+\ No newline at end of file
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab
+new file mode 100644
+index 0000000..2defe71
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream
+new file mode 100644
+index 0000000..4676474
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len
+new file mode 100644
+index 0000000..68b143b
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at
+new file mode 100644
+index 0000000..7d30a43
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i
+new file mode 100644
+index 0000000..6e9b308
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab
+new file mode 100644
+index 0000000..a35f91f
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream
+new file mode 100644
+index 0000000..100d205
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len
+new file mode 100644
+index 0000000..ccfcbf4
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at
+new file mode 100644
+index 0000000..b6bc667
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i
+new file mode 100644
+index 0000000..f768a77
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab
+new file mode 100644
+index 0000000..15367eb
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream
+new file mode 100644
+index 0000000..7f95b60
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len
+new file mode 100644
+index 0000000..7ef825f
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len
+new file mode 100644
+index 0000000..8833472
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at
+new file mode 100644
+index 0000000..040ce9f
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i
+new file mode 100644
+index 0000000..ff2d0f8
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i.len b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i.len differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/last-build.bin b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/last-build.bin
+new file mode 100644
+index 0000000..a5367b9
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/cacheable/last-build.bin differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin
+new file mode 100644
+index 0000000..3e7e961
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin differ
+diff --git a/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin
+new file mode 100644
+index 0000000..22b86be
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin differ
+diff --git a/node_modules/expo-splash-screen/android/build/outputs/logs/manifest-merger-debug-report.txt b/node_modules/expo-splash-screen/android/build/outputs/logs/manifest-merger-debug-report.txt
+new file mode 100644
+index 0000000..a39af31
+--- /dev/null
++++ b/node_modules/expo-splash-screen/android/build/outputs/logs/manifest-merger-debug-report.txt
+@@ -0,0 +1,14 @@
++-- Merging decision tree log ---
++manifest
++ADDED from /Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/AndroidManifest.xml:1:1-2:12
++INJECTED from /Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/AndroidManifest.xml:1:1-2:12
++	package
++		INJECTED from /Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/AndroidManifest.xml
++uses-sdk
++INJECTED from /Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
++INJECTED from /Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/AndroidManifest.xml
++INJECTED from /Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/AndroidManifest.xml
++	android:targetSdkVersion
++		INJECTED from /Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/AndroidManifest.xml
++	android:minSdkVersion
++		INJECTED from /Users/apw/Documents/ngss/trunk/ngss-rn/node_modules/expo-splash-screen/android/src/main/AndroidManifest.xml
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin b/node_modules/expo-splash-screen/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin
+new file mode 100644
+index 0000000..8b3df72
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/META-INF/expo-splash-screen_debug.kotlin_module b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/META-INF/expo-splash-screen_debug.kotlin_module
+new file mode 100644
+index 0000000..1e9f2ca
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/META-INF/expo-splash-screen_debug.kotlin_module differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenManager$registerOnActivity$1.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenManager$registerOnActivity$1.class
+new file mode 100644
+index 0000000..b6cba0b
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenManager$registerOnActivity$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenManager.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenManager.class
+new file mode 100644
+index 0000000..885aa70
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenManager.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$1$3$1.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$1$3$1.class
+new file mode 100644
+index 0000000..6b287a1
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$1$3$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$1.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$1.class
+new file mode 100644
+index 0000000..c7dac96
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$2.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$2.class
+new file mode 100644
+index 0000000..66a6e0d
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunction$2.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$1.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$1.class
+new file mode 100644
+index 0000000..34c0fc3
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$2.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$2.class
+new file mode 100644
+index 0000000..e1e5ac8
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$AsyncFunctionWithoutArgs$2.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$1.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$1.class
+new file mode 100644
+index 0000000..56fba1e
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$2.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$2.class
+new file mode 100644
+index 0000000..852d3f8
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$Function$2.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$FunctionWithoutArgs$1.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$FunctionWithoutArgs$1.class
+new file mode 100644
+index 0000000..2d528e9
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$FunctionWithoutArgs$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$OnDestroy$1.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$OnDestroy$1.class
+new file mode 100644
+index 0000000..634ad69
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule$definition$lambda$7$$inlined$OnDestroy$1.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule.class
+new file mode 100644
+index 0000000..a4967c9
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenModule.class differ
+diff --git a/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenOptions.class b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenOptions.class
+new file mode 100644
+index 0000000..876765c
+Binary files /dev/null and b/node_modules/expo-splash-screen/android/build/tmp/kotlin-classes/debug/expo/modules/splashscreen/SplashScreenOptions.class differ
+diff --git a/node_modules/expo-splash-screen/android/src/main/AndroidManifest.xml b/node_modules/expo-splash-screen/android/src/main/AndroidManifest.xml
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/android/src/main/java/expo/modules/splashscreen/SplashScreenManager.kt b/node_modules/expo-splash-screen/android/src/main/java/expo/modules/splashscreen/SplashScreenManager.kt
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/android/src/main/java/expo/modules/splashscreen/SplashScreenModule.kt b/node_modules/expo-splash-screen/android/src/main/java/expo/modules/splashscreen/SplashScreenModule.kt
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/android/src/main/res/values/colors_splashscreen.xml b/node_modules/expo-splash-screen/android/src/main/res/values/colors_splashscreen.xml
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/app.plugin.js b/node_modules/expo-splash-screen/app.plugin.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/build/SplashScreen.types.d.ts b/node_modules/expo-splash-screen/build/SplashScreen.types.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/build/SplashScreen.types.d.ts.map b/node_modules/expo-splash-screen/build/SplashScreen.types.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/build/SplashScreen.types.js b/node_modules/expo-splash-screen/build/SplashScreen.types.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/build/SplashScreen.types.js.map b/node_modules/expo-splash-screen/build/SplashScreen.types.js.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/build/index.d.ts b/node_modules/expo-splash-screen/build/index.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/build/index.d.ts.map b/node_modules/expo-splash-screen/build/index.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/build/index.js b/node_modules/expo-splash-screen/build/index.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/build/index.js.map b/node_modules/expo-splash-screen/build/index.js.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/build/index.native.d.ts b/node_modules/expo-splash-screen/build/index.native.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/build/index.native.d.ts.map b/node_modules/expo-splash-screen/build/index.native.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/build/index.native.js b/node_modules/expo-splash-screen/build/index.native.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/build/index.native.js.map b/node_modules/expo-splash-screen/build/index.native.js.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/expo-module.config.json b/node_modules/expo-splash-screen/expo-module.config.json
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/ios/ExpoSplashScreen.podspec b/node_modules/expo-splash-screen/ios/ExpoSplashScreen.podspec
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/ios/SplashScreenAppDelegateSubscriber.swift b/node_modules/expo-splash-screen/ios/SplashScreenAppDelegateSubscriber.swift
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/ios/SplashScreenManager.swift b/node_modules/expo-splash-screen/ios/SplashScreenManager.swift
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/ios/SplashScreenModule.swift b/node_modules/expo-splash-screen/ios/SplashScreenModule.swift
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/ios/SplashScreenOptions.swift b/node_modules/expo-splash-screen/ios/SplashScreenOptions.swift
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/plugin/build/withSplashScreen.d.ts b/node_modules/expo-splash-screen/plugin/build/withSplashScreen.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/plugin/build/withSplashScreen.js b/node_modules/expo-splash-screen/plugin/build/withSplashScreen.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/plugin/src/withSplashScreen.ts b/node_modules/expo-splash-screen/plugin/src/withSplashScreen.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/plugin/tsconfig.json b/node_modules/expo-splash-screen/plugin/tsconfig.json
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/plugin/tsconfig.tsbuildinfo b/node_modules/expo-splash-screen/plugin/tsconfig.tsbuildinfo
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/src/SplashScreen.types.ts b/node_modules/expo-splash-screen/src/SplashScreen.types.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/src/index.native.ts b/node_modules/expo-splash-screen/src/index.native.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/src/index.ts b/node_modules/expo-splash-screen/src/index.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/expo-splash-screen/tsconfig.json b/node_modules/expo-splash-screen/tsconfig.json
+old mode 100644
+new mode 100755

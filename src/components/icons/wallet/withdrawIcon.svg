@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 23"><defs>
+    </defs><title>资源 2</title>
+    <g >
+        <g >
+            <path class="cls-5" d="M26,3.33A3.34,3.34,0,0,0,22.67,0H3.33A3.34,3.34,0,0,0,0,3.33V7H26Z"/>
+            <path class="cls-6" d="M0,7V19.67A3.34,3.34,0,0,0,3.33,23H22.67A3.34,3.34,0,0,0,26,19.67V7Z"/>
+            <rect class="cls-5" x="4" y="17" width="5" height="2"/><rect class="cls-5" x="10" y="17" width="7" height="2"/>
+        </g>
+    </g>
+</svg>

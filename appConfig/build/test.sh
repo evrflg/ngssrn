@@ -1,0 +1,1 @@
+node ./appConfig/build/mtpush/init.js

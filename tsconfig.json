@@ -1,0 +1,26 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "module": "esnext"
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    "src/app/_layout.tsx",
+    "nativewind-env.d.ts",
+    "types/**/*.d.ts",
+    "server/index.js",
+    "appConfig/config.js",
+    "appConfig/config.js",
+    "src/components/home/Index2tsx",
+    "app.config.ts"  ]
+}
