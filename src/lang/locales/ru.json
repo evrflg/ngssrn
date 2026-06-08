@@ -142,7 +142,7 @@
     "withdraw": "Вывод",
     "rebate": "Ребейт",
     "task": "Задание",
-    "beDealt": "В\nПроцессе",
+    "beDealt": "Ожидает\nполучения",
     "specialBonus": "Тайный\nБонус",
     "memberDay": "День\nУчастника",
     "rescueFunds": "Фонд спасения",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "Информация о переводе",
       "rechargeAmount": "Сумма депозита",
       "skipPromotion": "Не участвовать",
+      "bonusPoints": "премия",
       "receiveName": "Имя",
       "bankCard": "Счёт",
       "rate": "Курс USDT",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "Обычный вывод",
       "crypto": "Крипто-вывод",
-      "pix": "PIX вывод"
+      "pix": "PIX вывод",
+      "thirdPartyWallet": "Сторонний кошелек",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "Обновить",
     "balance": "Баланс",

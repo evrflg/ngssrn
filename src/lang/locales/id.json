@@ -142,7 +142,7 @@
     "withdraw": "Tarik",
     "rebate": "Uang\nKembali",
     "task": "Tugas",
-    "beDealt": "Sedang\nDiproses",
+    "beDealt": "Menunggu\nKlaim",
     "specialBonus": "Bonus\nMisteri",
     "memberDay": "Hari\nAnggota",
     "rescueFunds": "Bantuan",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "Informasi Transfer",
       "rechargeAmount": "Jumlah pengisian ulang",
       "skipPromotion": "Tidak berpartisipasi",
+      "bonusPoints": "Bonus",
       "receiveName": "Nama",
       "bankCard": "Akun",
       "rate": "Kurs USDT",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "Penarikan biasa",
       "crypto": "Penarikan kripto",
-      "pix": "Penarikan PIX"
+      "pix": "Penarikan PIX",
+      "thirdPartyWallet": "Dompet Pihak Ketiga",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "Pembaruan",
     "balance": "Saldo",

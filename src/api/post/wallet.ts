@@ -35,7 +35,9 @@ export const getWithdrawConfig = (params: any) =>
 export const getMemberBanks = (params: any) =>
   get("/api/app-api/users/bank/get-member-banks-by-tunnel", params); // 获取会员银行信息
 export const getMemberCrypts = (params: any) =>
-  get("/api/app-api/users/bank/get-member-crypts", params); // 获得会员虚拟币银行列表
+  get("/api/app-api/users/bank/get-member-crypts-by-tunnel", params); // 获得会员虚拟币银行列表（测试站：按 tunnel typeCode）
+export const getMemberCryptsLegacy = (params: any) =>
+  get("/api/app-api/users/bank/get-member-crypts", params); // 获得会员虚拟币银行列表（正式站：按 type）
 export const createWithdraw = (params: any) =>
   post(`${prefix}/finance/withdraw/ope/create`, undefined, false, params); // 创建提款(提款資料輸入)
 export const vertifyReceiptPwd = (params: any, axiosConfig?: any) =>

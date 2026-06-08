@@ -170,6 +170,15 @@ const Index = ({ detail }: { detail: any }) => {
   };
   // 开宝箱
   const openBaoXiang = async (status: number, treasure: any) => {
+    if (detail?.status === 0) {
+      toast.warn(t("active.center.notStartedYetActivity"));
+      return;
+    }
+    if (detail?.status === 2) {
+      toast.warn(t("active.center.alreadyEnded"));
+      return;
+    }
+
     toast.loading(true);
     const id = treasure?.id;
     try {
@@ -206,9 +215,9 @@ const Index = ({ detail }: { detail: any }) => {
           toast.warn(t("status.claim.claimFailed"));
         }
       } else if (status === 2) {
-        toast.warn(t("active.center.promotion.weimazu"));
+        toast.warn(t("active.center.alreadyReceived"));
       } else {
-        toast.warn(t("active.center.promotion.weimazu"));
+        toast.warn(t("active.center.notSatisfied"));
       }
     } finally {
       toast.loading(false);
@@ -445,89 +454,93 @@ const Index = ({ detail }: { detail: any }) => {
         </Text>
       </View>
       <View style={[styles.info, { backgroundColor: Colors[theme].cardBg1 }]}>
-        <Text
-          className="my-3"
-          ellipsizeMode="tail"
-          numberOfLines={2}
-          style={{ color: Colors[theme].lightText, fontSize: rf(11) }}
-        >
-          {detail?.optional?.conditionMode === 0
-            ? t("active.center.promotion.mzrytj")
-            : t("active.center.promotion.mzsytj")}
-        </Text>
-        <View className="w-full flex-row justify-between items-center px-3">
-          <Text
-            className="items-center"
-            style={{ color: Colors[theme].lightText, fontSize: rf(12) }}
-          >
-            {t("active.center.promotion.zhsc")}
-          </Text>
-          <Text
-            className="items-center"
-            style={{ color: Colors[theme].text, fontSize: rf(12) }}
-          >
-            {conditionData.firstDeposit !== null
-              ? `≥ ${conditionData.firstDeposit}`
-              : "--"}
-          </Text>
-        </View>
-        <View
-          style={[styles.line, { borderBottomColor: beDealtTheme[theme].line }]}
-        />
-        <View className="w-full flex-row justify-between items-center px-3">
-          <Text
-            className="items-center"
-            style={{ color: Colors[theme].lightText, fontSize: rf(12) }}
-          >
-            {t("active.center.promotion.ljcz")}
-          </Text>
-          <Text
-            className="items-center"
-            style={{ color: Colors[theme].text, fontSize: rf(12) }}
-          >
-            {conditionData.totalDeposit !== null
-              ? `≥ ${conditionData.totalDeposit}`
-              : "--"}
-          </Text>
-        </View>
-        <View
-          style={[styles.line, { borderBottomColor: beDealtTheme[theme].line }]}
-        />
-        <View className="w-full flex-row justify-between items-center px-3">
-          <Text
-            className="items-center"
-            style={{ color: Colors[theme].lightText, fontSize: rf(12) }}
-          >
-            {t("active.center.promotion.ljdm")}
-          </Text>
-          <Text
-            className="items-center"
-            style={{ color: Colors[theme].text, fontSize: rf(12) }}
-          >
-            {conditionData.totalBet !== null
-              ? `≥ ${conditionData.totalBet}`
-              : "--"}
-          </Text>
-        </View>
-        <View
-          style={[styles.line, { borderBottomColor: beDealtTheme[theme].line }]}
-        />
-        <View className="w-full flex-row justify-between items-center px-3 mb-3">
-          <Text
-            className="items-center"
-            style={{ color: Colors[theme].lightText, fontSize: rf(12) }}
-          >
-            {t("active.center.promotion.ljczcs")}
-          </Text>
-          <Text
-            className="items-center"
-            style={{ color: Colors[theme].text, fontSize: rf(12) }}
-          >
-            {conditionData.depositCount !== null
-              ? `≥ ${conditionData.depositCount}`
-              : "--"}
-          </Text>
-        </View>
+        {detail?.optional?.condition ? (
+          <>
+            <Text
+              className="my-3"
+              ellipsizeMode="tail"
+              numberOfLines={2}
+              style={{ color: Colors[theme].lightText, fontSize: rf(11) }}
+            >
+              {detail?.optional?.conditionMode === 0
+                ? t("active.center.promotion.mzrytj")
+                : t("active.center.promotion.mzsytj")}
+            </Text>
+            <View className="w-full flex-row justify-between items-center px-3">
+              <Text
+                className="items-center"
+                style={{ color: Colors[theme].lightText, fontSize: rf(12) }}
+              >
+                {t("active.center.promotion.zhsc")}
+              </Text>
+              <Text
+                className="items-center"
+                style={{ color: Colors[theme].text, fontSize: rf(12) }}
+              >
+                {conditionData.firstDeposit !== null
+                  ? `≥ ${conditionData.firstDeposit}`
+                  : "--"}
+              </Text>
+            </View>
+            <View
+              style={[styles.line, { borderBottomColor: beDealtTheme[theme].line }]}
+            />
+            <View className="w-full flex-row justify-between items-center px-3">
+              <Text
+                className="items-center"
+                style={{ color: Colors[theme].lightText, fontSize: rf(12) }}
+              >
+                {t("active.center.promotion.ljcz")}
+              </Text>
+              <Text
+                className="items-center"
+                style={{ color: Colors[theme].text, fontSize: rf(12) }}
+              >
+                {conditionData.totalDeposit !== null
+                  ? `≥ ${conditionData.totalDeposit}`
+                  : "--"}
+              </Text>
+            </View>
+            <View
+              style={[styles.line, { borderBottomColor: beDealtTheme[theme].line }]}
+            />
+            <View className="w-full flex-row justify-between items-center px-3">
+              <Text
+                className="items-center"
+                style={{ color: Colors[theme].lightText, fontSize: rf(12) }}
+              >
+                {t("active.center.promotion.ljdm")}
+              </Text>
+              <Text
+                className="items-center"
+                style={{ color: Colors[theme].text, fontSize: rf(12) }}
+              >
+                {conditionData.totalBet !== null
+                  ? `≥ ${conditionData.totalBet}`
+                  : "--"}
+              </Text>
+            </View>
+            <View
+              style={[styles.line, { borderBottomColor: beDealtTheme[theme].line }]}
+            />
+            <View className="w-full flex-row justify-between items-center px-3 mb-3">
+              <Text
+                className="items-center"
+                style={{ color: Colors[theme].lightText, fontSize: rf(12) }}
+              >
+                {t("active.center.promotion.ljczcs")}
+              </Text>
+              <Text
+                className="items-center"
+                style={{ color: Colors[theme].text, fontSize: rf(12) }}
+              >
+                {conditionData.depositCount !== null
+                  ? `≥ ${conditionData.depositCount}`
+                  : "--"}
+              </Text>
+            </View>
+          </>
+        ) : null}
       </View>
 
       {boxGroups.map((row, rowIndex) => {

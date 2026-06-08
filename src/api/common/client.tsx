@@ -15,6 +15,10 @@ import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from "@/lang/language";
 import i18n from "@/lang/i18n";
 import getMessageByCode from "./errorCode";
 import { getIsPWA } from "@/utils/utils";
+import {
+  getFingerprint,
+  getCachedFingerprint,
+} from "@/utils/deviceFingerprint";
 
 const isWeb = Platform.OS === "web";
 
@@ -89,7 +93,14 @@ function isAuthRoutePath(path: string): boolean {
 const KICKOFF_PUSH_LOGIN_DEBOUNCE_MS = 1200;
 let kickoffPushLoginUntil = 0;
 
-export function pushLoginAfterAuthLoss() {
+/** 本次 App 会话内是否已成功拉取过登录态（accInfo 成功且 isLogin） */
+let hadActiveLoginThisSession = false;
+
+export function markActiveLoginSession() {
+  hadActiveLoginThisSession = true;
+}
+
+export function pushLoginAfterAuthLoss(options?: { showExpiredToast?: boolean }) {
   // 已在登录/注册页时不重复跳转（Web / Native 都用同一套 route 兜底）
   const current = normalizePath(getCurrentRoutePath());
   if (isAuthRoutePath(current)) return;
@@ -98,10 +109,13 @@ export function pushLoginAfterAuthLoss() {
   if (now < kickoffPushLoginUntil) return;
   kickoffPushLoginUntil = now + KICKOFF_PUSH_LOGIN_DEBOUNCE_MS;
 
+  const showExpiredToast = Boolean(options?.showExpiredToast);
+
   try {
-    router.push({
+    // replace 避免多次 push 堆叠登录页导致 iOS 闪退
+    router.replace({
       pathname: LOGIN_HREF,
-      params: { isAfterAuthLoss: "1" },
+      ...(showExpiredToast ? { params: { isAfterAuthLoss: "1" } } : {}),
     } as unknown as Href);
   } catch {
     kickoffPushLoginUntil = 0;
@@ -136,6 +150,7 @@ export const setConfigSession = (str: string) => {
     str = "Bearer " + str;
   }
   configsession = str;
+  if (str) resetAuthLossGuard();
 };
 export let language = DEFAULT_LANGUAGE;
 export let setApiLanguage = (lang: string) => {
@@ -146,15 +161,39 @@ export let setAllParams = (params: any) => {
   allParams = params;
 };
 
-/** 这些接口可能返回 HTTP 401，但不表示「已登录用户会话失效」（如密码错误），不应触发全局登出 */
-function shouldSkipHttp401Logout(requestUrl?: string): boolean {
+/** 这些接口可能返回 401，但不表示「已登录用户会话失效」，不应触发全局登出 */
+function shouldSkipAuthLossLogout(requestUrl?: string): boolean {
   if (!requestUrl) return false;
   return (
     requestUrl.includes("/users/auth/login") ||
     requestUrl.includes("/users/auth/register") ||
     requestUrl.includes("/users/auth/captcha/") ||
-    requestUrl.includes("/users/auth/siwan-register")
+    requestUrl.includes("/users/auth/siwan-register") ||
+    requestUrl.includes("/users/auth/refresh-token")
   );
+}
+
+/** 防抖：多请求同时 401 时只触发一次登出，避免 Native 导航栈异常 / 闪退 */
+const AUTH_LOSS_DEBOUNCE_MS = 2000;
+let authLossEmittedUntil = 0;
+
+export function resetAuthLossGuard() {
+  authLossEmittedUntil = 0;
+}
+
+export type AuthLossPayload = { showExpiredToast?: boolean };
+
+function triggerAuthLoss(showExpiredToast: boolean) {
+  const now = Date.now();
+  if (now < authLossEmittedUntil) return;
+  authLossEmittedUntil = now + AUTH_LOSS_DEBOUNCE_MS;
+  hadActiveLoginThisSession = false;
+  DeviceEventEmitter.emit("isUserLogout", { showExpiredToast });
+}
+
+export function emitAuthLossIfNeeded() {
+  if (!configsession) return;
+  triggerAuthLoss(hadActiveLoginThisSession);
 }
 
 function shouldHideErrorToast(
@@ -172,6 +211,9 @@ export const client = axios.create({
   }, //设置post请求头
   timeout: 10000,
 });
+
+// 预取设备指纹，避免首个 API 请求阻塞等待
+void getFingerprint();
 
 // 初始化全局 language：优先使用本地缓存的语言 code（ngss-rn-language）
 getStorage("ngss-rn-language")
@@ -213,7 +255,7 @@ let tenantUnavailableToastShown = false;
 
 //请求拦截器
 client.interceptors.request.use(
-  (config: any) => {
+  async (config: any) => {
     const silentFromConfig = Boolean(config.silentErrorToast);
     config.customData = {};
     const method = config.method?.toUpperCase();
@@ -221,6 +263,12 @@ client.interceptors.request.use(
       config.headers["Cache-Control"] = "no-cache";
       config.headers["Pragma"] = "no-cache";
     }
+
+    const fingerprint = getCachedFingerprint() ?? (await getFingerprint());
+    if (fingerprint) {
+      config.headers["Browser-Fingerprint"] = fingerprint;
+    }
+
     if (!isWeb) {
       const domain = patch.DOMAIN_URL;
       config.headers["Referer"] = domain;
@@ -316,8 +364,11 @@ client.interceptors.response.use(
         });
       }
     }
-    if (code === 401) {
-      DeviceEventEmitter.emit("isUserLogout", false);
+    if (
+      Number(code) === 401 &&
+      !shouldSkipAuthLossLogout(config.url)
+    ) {
+      emitAuthLossIfNeeded();
     }
 
     // 跳转维护页面
@@ -349,12 +400,12 @@ client.interceptors.response.use(
         // 可以在这里处理成功响应
         if (data.success === false && data.msg) {
           if (data.isLogin === false) {
-            // 充值、提现、充值记录、首页 不提示，为了做纸飞机快捷进入项目
-            //之所以样处理是因为相同状态有多个接口满足条件这里只需要弹被挤出的状态如果要彻底解决需要后台提供不同的返回状态来做区分  --！
-            if (data.msg?.length > 25) {
-              DeviceEventEmitter.emit("showNotLoginErrMsg", { msg: data.msg });
-            }
-            if (!canNoLoginApi.includes(config.url)) {
+            // msg 较长视为被挤下线；仅本会话曾登录过才弹「登录已失效」并清会话
+            const isKickedOff =
+              typeof data.msg === "string" && data.msg.length > 25;
+            if (isKickedOff && hadActiveLoginThisSession) {
+              triggerAuthLoss(true);
+            } else if (!canNoLoginApi.includes(config.url)) {
               replaceHomeAfterAuthLoss();
             }
           }
@@ -370,9 +421,9 @@ client.interceptors.response.use(
     let status = error?.response?.status;
     const reqUrl = error?.config?.url as string | undefined;
 
-    // 与业务体 code===401 对齐：网关/网关直接返回 HTTP 401 时也要走登出流程（排除登录失败等）
-    if (status === 401 && !shouldSkipHttp401Logout(reqUrl) && configsession) {
-      DeviceEventEmitter.emit("isUserLogout", false);
+    // 与业务体 code===401 对齐：网关直接返回 HTTP 401 时也要走登出流程（排除登录失败等）
+    if (status === 401 && !shouldSkipAuthLossLogout(reqUrl)) {
+      emitAuthLossIfNeeded();
     }
 
     if (status === 502) {

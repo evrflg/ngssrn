@@ -3,6 +3,7 @@ import {
   getMemberBanks,
   getMemberBankType,
   getMemberCrypts,
+  getMemberCryptsLegacy,
   getMemberPixs,
   getMemberWallets,
   getWithdrawConfig,
@@ -11,7 +12,9 @@ import {
 } from "@/api";
 import { BankCard, PixCard, ThirdWallet, UsdtCard, WithdrawBankItem } from "@/api/types/wallet";
 import { useToast } from "@/components/common/toast";
+import { buildWithdrawTabQuery } from "@/modules/wallet/shared/utils";
 import { WITHDRAW_TYPE } from "@/services/wallet/withdrawService";
+import { stationConfig } from "@/store/tenant/tenantSlice";
 import { RootState } from "@/store/store";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
@@ -157,6 +160,7 @@ export const useWithdraw = ({ initData = true }: Options) => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const toast = useToast();
   const globalConfig: any = useSelector((state: RootState) => state?.user?.cfg_site_base);
+  const siteConfig = useSelector(stationConfig);
   const userInfo: any = useSelector((state: RootState) => state?.user?.userInfo);
   const isLogin = !!userInfo?.isLogin;
   const userRankId = userInfo?.rankId ?? userInfo?.member?.rankId;
@@ -281,8 +285,12 @@ export const useWithdraw = ({ initData = true }: Options) => {
             }
           });
           break;
-        case WITHDRAW_TYPE.CRYPTO:
-          await getMemberCrypts({ type }).then(({ data }) => {
+        case WITHDRAW_TYPE.CRYPTO: {
+          const cryptoParam = siteConfig?.isTestSite ? tunnelCode : "2";
+          const fetchCrypts = siteConfig?.isTestSite
+            ? getMemberCrypts({ typeCode: cryptoParam })
+            : getMemberCryptsLegacy({ type: cryptoParam });
+          await fetchCrypts.then(({ data }) => {
             if (data.data && Array.isArray(data.data)) {
               setBankCards(
                 data.data.map((card: UsdtCard, index: number) => {
@@ -297,6 +305,7 @@ export const useWithdraw = ({ initData = true }: Options) => {
             }
           });
           break;
+        }
         case WITHDRAW_TYPE.ONLINE:
           await getMemberPixs({ type }).then(({ data }) => {
             if (data.data && Array.isArray(data.data)) {
@@ -338,7 +347,7 @@ export const useWithdraw = ({ initData = true }: Options) => {
     } catch (e) {
       console.error("loadBankCards failed:", e);
     }
-  }, [selectedWithdrawType, withdrawConfig?.tunnelCode]);
+  }, [selectedWithdrawType, withdrawConfig?.tunnelCode, siteConfig?.isTestSite]);
 
   const loadPendingCount = async () => {
     await getWithdrawRecord({ orderStatus: 1 }).then((res) => {
@@ -419,24 +428,26 @@ export const useWithdraw = ({ initData = true }: Options) => {
 
   const toAddPage = () => {
     const currentWithdrawCategory = withdrawTypes[baseIndex];
-    const type = withdrawTypeMap[currentWithdrawCategory?.id as keyof typeof withdrawTypeMap];
+    const query = buildWithdrawTabQuery({
+      tab: currentWithdrawCategory,
+      withdrawConfig,
+    });
+    if (!query) return;
+    const { numericType: type, tunnelCode, tabId } = query;
     switch (currentWithdrawCategory?.id) {
       case WITHDRAW_TYPE.BANK:
-        navigation.push("wallet/addBank", { type, tunnelCode: withdrawConfig?.tunnelCode });
+        navigation.push("wallet/addBank", { type, tunnelCode, tabId });
         break;
       case WITHDRAW_TYPE.CRYPTO:
-        navigation.push("wallet/addUsdt", { type });
+        navigation.push("wallet/addUsdt", { type, tunnelCode, tabId });
         break;
       case WITHDRAW_TYPE.THIRD:
       case "type-5":
       case "type-6":
-        navigation.push("wallet/addThird", {
-          type,
-          tunnelCode: withdrawConfig?.tunnelCode,
-        });
+        navigation.push("wallet/addThird", { type, tunnelCode, tabId });
         break;
       case WITHDRAW_TYPE.ONLINE:
-        navigation.push("wallet/addOnline", { type });
+        navigation.push("wallet/addOnline", { type, tunnelCode, tabId });
         break;
       default:
         break;
@@ -445,9 +456,15 @@ export const useWithdraw = ({ initData = true }: Options) => {
 
   const toAddressPage = () => {
     const currentWithdrawCategory = withdrawTypes[baseIndex];
+    const query = buildWithdrawTabQuery({
+      tab: currentWithdrawCategory,
+      withdrawConfig,
+    });
+    if (!query) return;
     navigation.push("wallet/bankAddress", {
-      type: currentWithdrawCategory?.id,
-      tunnelCode: withdrawConfig?.tunnelCode,
+      type: query.semanticType,
+      tunnelCode: query.tunnelCode,
+      tabId: query.tabId,
     });
   };
 

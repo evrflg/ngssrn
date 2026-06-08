@@ -23,6 +23,7 @@ type CardListItem = {
   activityName: string;
   coverImageURL: any;
   introduction?: string;
+  showText?: number;
   status?: number;
 };
 
@@ -34,6 +35,7 @@ type BottomStripActivityCardProps = {
   index: number;
   actDepositType?: number;
   introduction?: string;
+  showText?: number;
   cardInnerWidth: number;
   coverImgH: number;
   isLast: boolean;
@@ -57,6 +59,7 @@ const BottomStripActivityCard = React.memo(function BottomStripActivityCard({
   index,
   actDepositType,
   introduction,
+  showText,
   cardInnerWidth,
   coverImgH,
   isLast,
@@ -103,25 +106,27 @@ const BottomStripActivityCard = React.memo(function BottomStripActivityCard({
           slotWidth={cardInnerWidth}
           slotHeight={coverImgH}
         />
-        <Text
-          className="px-2 self-start"
-          style={{
-            position: "absolute",
-            top: isWideScreen ? 5 : 4,
-            fontSize: 10,
-            padding: 5,
-            lineHeight: 10,
-            fontWeight: 300,
-            color: "#ffffff",
-            textShadowColor: "rgba(0, 0, 0, 0.5)",
-            textShadowOffset: { width: 1, height: 1 },
-            textShadowRadius: 2,
-          }}
-          numberOfLines={4}
-          ellipsizeMode="tail"
-        >
-          {activeIntroduction(introduction)}
-        </Text>
+        {showText === 0 && introduction ? (
+          <Text
+            className="px-2 self-start"
+            style={{
+              position: "absolute",
+              top: isWideScreen ? 5 : 4,
+              fontSize: 10,
+              padding: 5,
+              lineHeight: 10,
+              fontWeight: 300,
+              color: "#ffffff",
+              textShadowColor: "rgba(0, 0, 0, 0.5)",
+              textShadowOffset: { width: 1, height: 1 },
+              textShadowRadius: 2,
+            }}
+            numberOfLines={4}
+            ellipsizeMode="tail"
+          >
+            {activeIntroduction(introduction)}
+          </Text>
+        ) : null}
       </View>
     </Pressable>
   );
@@ -392,6 +397,7 @@ export function ActiveCenterBottomStrip({
             index={index}
             actDepositType={item.status}
             introduction={item.introduction}
+            showText={item.showText}
             cardInnerWidth={bottomCardW}
             coverImgH={bottomCardImgH}
             isLast={index === cardList.length - 1}

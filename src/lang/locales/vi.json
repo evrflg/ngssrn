@@ -142,7 +142,7 @@
     "withdraw": "Rút tiền",
     "rebate": "Hoàn\ntiền",
     "task": "Nhiệm vụ",
-    "beDealt": "Đang xử\nlý",
+    "beDealt": "Chờ nhận",
     "specialBonus": "Thưởng\nbí ẩn",
     "memberDay": "Ngày\nthành viên",
     "rescueFunds": "Trợ cấp",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "Thông tin chuyển khoản",
       "rechargeAmount": "Lượng sạc lại",
       "skipPromotion": "Đừng tham gia",
+      "bonusPoints": "Tiền thưởng",
       "receiveName": "Tên",
       "bankCard": "Tài khoản",
       "rate": "Tỷ giá USDT",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "Rút thường",
       "crypto": "Rút tiền ảo",
-      "pix": "Rút PIX"
+      "pix": "Rút PIX",
+      "thirdPartyWallet": "Ví bên thứ ba",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "Làm mới",
     "balance": "Số dư",

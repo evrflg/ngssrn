@@ -142,7 +142,7 @@
     "withdraw": "উত্তোলন",
     "rebate": "ক্যাশ\nব্যাক",
     "task": "কাজ",
-    "beDealt": "প্রক্রিয়াধীন\nআছে",
+    "beDealt": "দাবির\nঅপেক্ষায়",
     "specialBonus": "রহস্য\nবোনাস",
     "memberDay": "সদস্য\nদিবস",
     "rescueFunds": "উদ্ধার তহবিল",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "ট্রান্সফার তথ্য",
       "rechargeAmount": "ডিপোজিট পরিমাণ",
       "skipPromotion": "অংশগ্রহণ করবেন না",
+      "bonusPoints": "বোনাস পয়েন্ট",
       "receiveName": "নাম",
       "bankCard": "অ্যাকাউন্ট",
       "rate": "USDT হার",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "সাধারণ উত্তোলন",
       "crypto": "ক্রিপ্টো উত্তোলন",
-      "pix": "PIX উত্তোলন"
+      "pix": "PIX উত্তোলন",
+      "thirdPartyWallet": "তৃতীয় পক্ষের ওয়ালেট",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "রিফ্রেশ",
     "balance": "ব্যালেন্স",

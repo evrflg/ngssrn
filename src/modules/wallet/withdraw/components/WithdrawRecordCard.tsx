@@ -9,6 +9,7 @@ import React, { useMemo } from "react";
 import { Pressable, StyleProp, Text, View, ViewStyle } from "react-native";
 import { useTranslation } from "react-i18next";
 import { useToast } from "@/components/common/toast";
+import { getWithdrawTypeI18nKey } from "@/modules/wallet/shared/constants";
 
 export interface WithdrawRecordItem {
   id: number;
@@ -62,12 +63,7 @@ export const WithdrawRecordCard = React.memo(({ record, style }: WithdrawRecordC
     toast.success(t("common.copySuccess"));
   };
 
-  const withdrawTypeKey =
-    record.withdrawType === 1
-      ? "wallet.withdrawType.normal"
-      : record.withdrawType === 2
-        ? "wallet.withdrawType.crypto"
-        : "wallet.withdrawType.pix";
+  const withdrawTypeKey = getWithdrawTypeI18nKey(record.withdrawType);
 
   const timeText = dayjs(record.handleTime || record.createTime).format(
     "YYYY-MM-DD HH:mm:ss",

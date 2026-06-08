@@ -1,5 +1,69 @@
-import { ServiceFeeParams, WithdrawTab } from "./types";
-import { getDefaultWithdrawIcon, typeToTabId, withdrawTypeMap } from "./constants";
+import { ImageSourcePropType } from "react-native";
+import { ServiceFeeParams, WithdrawConfig, WithdrawTab } from "./types";
+import { getDefaultWithdrawIcon, typeToTabId, WITHDRAW_TYPE, withdrawTypeMap } from "./constants";
+
+export type WithdrawalMethodDisplay = {
+  title: string;
+  text: string;
+  realName: string;
+};
+
+export function isThirdWalletTabId(withdrawTypeId?: string): boolean {
+  return (
+    withdrawTypeId === WITHDRAW_TYPE.THIRD ||
+    withdrawTypeId === "type-5" ||
+    withdrawTypeId === "type-6"
+  );
+}
+
+/** Display fields for WithdrawalMethodBlock (aligned with ngss-vue wallet lists). */
+export function getWithdrawalMethodDisplay(
+  item: Record<string, unknown>,
+  withdrawTypeId?: string,
+): WithdrawalMethodDisplay {
+  switch (withdrawTypeId) {
+    case WITHDRAW_TYPE.BANK:
+      return {
+        title: String(item.bankName || item.bankCode || ""),
+        text: String(item.cardNo || ""),
+        realName: String(item.realName || ""),
+      };
+    case WITHDRAW_TYPE.ONLINE:
+      return {
+        title: String(item.typeCode || ""),
+        text: String(item.typeCode === "PHONE" ? item.pix : item.cpf || ""),
+        realName: String(item.realName || ""),
+      };
+    case WITHDRAW_TYPE.CRYPTO:
+    case WITHDRAW_TYPE.THIRD:
+    case "type-5":
+    case "type-6":
+      return {
+        title: String(item.typeCode || ""),
+        text: String(item.address || ""),
+        realName: String(item.username || ""),
+      };
+    default:
+      return {
+        title: String(item.bankName || item.bankCode || item.typeCode || ""),
+        text: String(item.cardNo || item.pix || item.address || ""),
+        realName: String(item.realName || item.username || ""),
+      };
+  }
+}
+
+export function getWithdrawCardIcon(
+  withdrawTypeId?: string,
+  iconUrl?: string,
+): ImageSourcePropType {
+  if (iconUrl && isThirdWalletTabId(withdrawTypeId)) {
+    return { uri: iconUrl };
+  }
+  if (withdrawTypeId === WITHDRAW_TYPE.CRYPTO) {
+    return require("@/assets/images/wallet/usdt-logo.png");
+  }
+  return require("@/assets/images/wallet/pix.png");
+}
 
 // ─────────────────────────────────────────────
 // 提现通道组装
@@ -68,6 +132,31 @@ export function mapWithdrawRowToTab(withdraw: any): WithdrawTab {
     tunnelCode: withdraw.tunnelCode,
     tunnels: withdraw.tunnels,
   };
+}
+
+/** Mirrors ngss-vue `withdrawTabQuery` for wallet list / add navigation. */
+export function buildWithdrawTabQuery(options: {
+  tab?: Pick<WithdrawTab, "id" | "tabId" | "tunnelCode"> | null;
+  withdrawConfig?: Pick<WithdrawConfig, "id" | "tunnelCode"> | null;
+  tunnelCodeOverride?: string;
+  tabIdOverride?: string;
+}): {
+  semanticType: string;
+  numericType: number;
+  tunnelCode?: string;
+  tabId: string;
+} | null {
+  const tab = options.tab;
+  if (!tab?.id) return null;
+  const numericType = withdrawTypeMap[tab.id];
+  if (numericType === undefined) return null;
+  const tunnelCode =
+    options.tunnelCodeOverride ?? options.withdrawConfig?.tunnelCode ?? tab.tunnelCode;
+  const tabId =
+    options.tabIdOverride ??
+    tab.tabId ??
+    (options.withdrawConfig?.id != null ? String(options.withdrawConfig.id) : "");
+  return { semanticType: tab.id, numericType, tunnelCode, tabId };
 }
 
 /**

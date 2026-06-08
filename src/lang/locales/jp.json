@@ -142,7 +142,7 @@
     "withdraw": "出金",
     "rebate": "キャッシュ\nバック",
     "task": "タスク",
-    "beDealt": "処理中\nボーナス",
+    "beDealt": "受取待ち",
     "specialBonus": "ミステリー\nボーナス",
     "memberDay": "会員\nデー",
     "rescueFunds": "救援金",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "転送情報",
       "rechargeAmount": "充電額",
       "skipPromotion": "参加しない",
+      "bonusPoints": "ボーナス",
       "receiveName": "名前",
       "bankCard": "アカウント",
       "rate": "USDT レート",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "通常出金",
       "crypto": "暗号資産出金",
-      "pix": "PIX出金"
+      "pix": "PIX出金",
+      "thirdPartyWallet": "サードパーティウォレット",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "リフレッシュ",
     "balance": "残高",

@@ -30,13 +30,6 @@ export default function addThird() {
   const [options, setOptions] = useState<Array<any>>([]);
   const [selectedOption, selectOption] = useState<any>(null);
 
-  const bankType = useMemo(() => {
-    const raw = params?.type;
-    const v = Array.isArray(raw) ? raw[0] : raw;
-    if (v == null || v === "") return 4;
-    const n = Number(v);
-    return Number.isFinite(n) ? n : 4;
-  }, [params?.type]);
   const tunnelCode = useMemo(() => {
     const raw = params?.tunnelCode;
     if (raw == null || raw === "") return undefined;
@@ -104,7 +97,8 @@ export default function addThird() {
       toast.success(t("common.operationSuccess"));
       router.back();
     } else {
-      toast.error(result?.data.msg);
+      // toast.error(result?.data.msg);
+      toast.error(t(result?.data?.code || result?.data.msg));
     }
   };
 

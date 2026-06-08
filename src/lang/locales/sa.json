@@ -141,7 +141,7 @@
     "withdraw": "ينسحب",
     "rebate": "استرداد\nنقدي",
     "task": "مهمة",
-    "beDealt": "قيد\nالمعالجة",
+    "beDealt": "في انتظار\nالاستلام",
     "specialBonus": "مكافأة\nغامضة",
     "memberDay": "يوم\nالعضو",
     "rescueFunds": "أموال الإنقاذ",
@@ -578,6 +578,7 @@
       "transferInfoTitle": "نقل المعلومات",
       "rechargeAmount": "مبلغ الإيداع",
       "skipPromotion": "لا تشارك",
+      "bonusPoints": "مكافأة",
       "receiveName": "اسم",
       "bankCard": "الحساب",
       "rate": "سعر USDT",
@@ -670,7 +671,9 @@
     "withdrawType": {
       "normal": "الانسحاب العادي",
       "crypto": "سحب التشفير",
-      "pix": "سحب بيكس"
+      "pix": "سحب بيكس",
+      "thirdPartyWallet": "محفظة خارجية",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "ينعش",
     "balance": "توازن",

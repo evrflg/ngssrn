@@ -142,7 +142,7 @@
     "withdraw": "Sacar",
     "rebate": "Cash\nBack",
     "task": "Tarefa",
-    "beDealt": "Em\nProcesso",
+    "beDealt": "A Receber",
     "specialBonus": "Bônus\nMistério",
     "memberDay": "Dia\nMembro",
     "rescueFunds": "Fundos de resgate",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "Informações de transferência",
       "rechargeAmount": "Quantidade de recarga",
       "skipPromotion": "Não participe",
+      "bonusPoints": "Bónus",
       "receiveName": "Nome",
       "bankCard": "Conta",
       "rate": "Câmbio USDT",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "Saque normal",
       "crypto": "Saque cripto",
-      "pix": "Saque via PIX"
+      "pix": "Saque via PIX",
+      "thirdPartyWallet": "Carteira de Terceiros",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "Refrescar",
     "balance": "Saldo",

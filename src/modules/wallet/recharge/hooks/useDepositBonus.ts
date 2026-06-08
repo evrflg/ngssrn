@@ -1,66 +1,130 @@
-import { getBonusStatus, getDepositBonus } from "@/api/post/wallet";
-import { useEffect, useState } from "react";
+import { getDepositBonus } from "@/api/post/wallet";
+import { debounce } from "@/utils/debounce";
+import { processErrorMessage } from "@/utils/message-parser";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+
+const depositBonusCache = new Map<string, number>();
 
 /**
- * 根据通道配置决定是否展示赠送金额，
  * 根据 tunnelId + 金额实时计算充值赠送金额。
- * tunnelId 或 amount 为空时，giftMoney = 0。
+ * tunnelId 或 amount 为空、或用户选择不参与优惠时，giftMoney = 0。
  */
-export function useDepositBonus(tunnelId: string | undefined, amount: string) {
+export function useDepositBonus(
+  tunnelId: string | undefined,
+  amount: string,
+  skipDepositGift: boolean,
+) {
+  const { t, i18n } = useTranslation();
   const [giftMoney, setGiftMoney] = useState(0);
-  const [isShowGiftMoney, setIsShowGiftMoney] = useState(false);
+  const [walletType, setWalletType] = useState(0);
+  const [isCalculatingBonus, setIsCalculatingBonus] = useState(false);
+  const [exhaustedRemaining, setExhaustedRemaining] = useState("");
+  const calcDepositBonusSeq = useRef(0);
+  const tunnelIdRef = useRef(tunnelId);
+  const amountRef = useRef(amount);
+  const skipDepositGiftRef = useRef(skipDepositGift);
 
-  useEffect(() => {
-    if (!tunnelId) {
-      setIsShowGiftMoney(false);
+  tunnelIdRef.current = tunnelId;
+  amountRef.current = amount;
+  skipDepositGiftRef.current = skipDepositGift;
+
+  const runCalcDepositBonus = useCallback(async () => {
+    setExhaustedRemaining((prev) => prev && "");
+    const currentTunnelId = tunnelIdRef.current;
+    const amt = Number(amountRef.current);
+
+    if (skipDepositGiftRef.current || !currentTunnelId || !amt || amt <= 0) {
       setGiftMoney(0);
+      setWalletType(0);
+      setIsCalculatingBonus(false);
       return;
     }
 
-    let cancelled = false;
-    getBonusStatus({ tunnelId })
-      .then((res: any) => {
-        if (cancelled) return;
-        const data = res?.data?.data ?? res?.data;
-        const shouldShow = Boolean(data?.hasDepositBonus || data?.hasChannelRecommendation);
-        setIsShowGiftMoney(shouldShow);
-        if (!shouldShow) setGiftMoney(0);
-      })
-      .catch(() => {
-        if (cancelled) return;
-        setIsShowGiftMoney(true);
+    const seq = ++calcDepositBonusSeq.current;
+    const cacheKey = `${currentTunnelId}_${amt}`;
+
+    try {
+      const res: any = await getDepositBonus({
+        tunnelId: currentTunnelId,
+        depositMoney: amountRef.current,
       });
+      if (seq !== calcDepositBonusSeq.current) return;
 
-    return () => {
-      cancelled = true;
-    };
-  }, [tunnelId]);
+      const code = res?.data?.code ?? res?.code;
+      const data = res?.data?.data ?? res?.data;
+      if (code === 0) {
+        const newBonus = (data?.depositBonus ?? 0) + (data?.recomBonus ?? 0);
+        const stillInSameState =
+          amt === Number(amountRef.current) && currentTunnelId === tunnelIdRef.current;
+        depositBonusCache.set(cacheKey, newBonus);
 
-  useEffect(() => {
-    if (!isShowGiftMoney || !tunnelId || !amount || amount === "0") {
-      setGiftMoney(0);
-      return;
-    }
-
-    let cancelled = false;
-    getDepositBonus({ tunnelId, depositMoney: amount })
-      .then((res: any) => {
-        if (cancelled) return;
-        const data = res?.data?.data ?? res?.data;
-        if (res?.data?.code === 0 && data) {
-          setGiftMoney((data.depositBonus ?? 0) + (data.recomBonus ?? 0));
-        } else {
-          setGiftMoney(0);
+        if (stillInSameState) {
+          setGiftMoney((prev) => (prev !== newBonus ? newBonus : prev));
+          setWalletType(data?.walletType ?? 0);
         }
-      })
-      .catch(() => {
-        if (!cancelled) setGiftMoney(0);
-      });
+      } else {
+        const msg = (res?.data?.msg ?? res?.msg) as string;
+        const key = `errMsg.${code}`;
+        const messageInfo = processErrorMessage(msg);
+        const message = i18n.exists(key)
+          ? t(key, messageInfo.values || [])
+          : msg;
+        setExhaustedRemaining(message);
+      }
+    } catch {
+      if (
+        seq !== calcDepositBonusSeq.current ||
+        amt !== Number(amountRef.current) ||
+        currentTunnelId !== tunnelIdRef.current
+      ) {
+        return;
+      }
+      if (!depositBonusCache.has(cacheKey)) {
+        setGiftMoney(0);
+      }
+    } finally {
+      if (seq === calcDepositBonusSeq.current) {
+        setIsCalculatingBonus(false);
+      }
+    }
+  }, [i18n, t]);
 
+  const debouncedCalcDepositBonus = useMemo(
+    () =>
+      debounce(() => {
+        void runCalcDepositBonus();
+      }, 400, false),
+    [runCalcDepositBonus],
+  );
+
+  useEffect(() => {
+    const amt = Number(amount);
+
+    if (skipDepositGift || !tunnelId || !amt || amt <= 0) {
+      setGiftMoney(0);
+      setWalletType(0);
+      setIsCalculatingBonus(false);
+      setExhaustedRemaining("");
+    } else {
+      const cacheKey = `${tunnelId}_${amt}`;
+      if (depositBonusCache.has(cacheKey)) {
+        setGiftMoney(depositBonusCache.get(cacheKey) as number);
+        setIsCalculatingBonus(false);
+      } else {
+        setGiftMoney(0);
+        setIsCalculatingBonus(true);
+      }
+    }
+
+    debouncedCalcDepositBonus();
+  }, [amount, tunnelId, skipDepositGift, debouncedCalcDepositBonus]);
+
+  useEffect(() => {
     return () => {
-      cancelled = true;
+      debouncedCalcDepositBonus.cancel();
     };
-  }, [isShowGiftMoney, tunnelId, amount]);
+  }, [debouncedCalcDepositBonus]);
 
-  return { giftMoney, isShowGiftMoney };
+  return { giftMoney, walletType, isCalculatingBonus, exhaustedRemaining };
 }

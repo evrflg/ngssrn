@@ -177,6 +177,7 @@ export interface WithdrawTab {
 
 export interface WithdrawConfig {
   id?: string | number;
+  iconUrl?: string;
   handleFee?: number;
   minDrawMoney?: number;
   maxDrawMoney?: number;

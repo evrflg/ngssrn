@@ -142,7 +142,7 @@
     "withdraw": "Withdraw",
     "rebate": "Balik\nPera",
     "task": "Gawain",
-    "beDealt": "Pinoproseso\nPa",
+    "beDealt": "Pending\nClaim",
     "specialBonus": "Bonus\nMisteryo",
     "memberDay": "Araw\nMiyembro",
     "rescueFunds": "Pondo ng Pagsagip",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "Impormasyon ng Paglipat",
       "rechargeAmount": "Halaga ng Deposito",
       "skipPromotion": "Huwag lumahok",
+      "bonusPoints": "Bonukset",
       "receiveName": "Pangalan",
       "bankCard": "Account",
       "rate": "USDT rate",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "Normal na Pag-withdraw",
       "crypto": "Pag-withdraw ng Crypto",
-      "pix": "Pag-withdraw ng PIX"
+      "pix": "Pag-withdraw ng PIX",
+      "thirdPartyWallet": "Third-Party Wallet",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "Stock label",
     "balance": "Balanse",

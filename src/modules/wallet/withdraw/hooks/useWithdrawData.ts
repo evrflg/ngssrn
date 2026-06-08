@@ -3,6 +3,7 @@ import {
   getMemberBanks,
   getMemberBankType,
   getMemberCrypts,
+  getMemberCryptsLegacy,
   getMemberPixs,
   getMemberWallets,
   getWithdrawConfig,
@@ -16,6 +17,7 @@ import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { stationConfig } from "@/store/tenant/tenantSlice";
 import { RootState } from "@/store/store";
 import { BankCard, PixCard, ThirdWallet, UsdtCard, WithdrawBankItem, WithdrawConfig, WithdrawTab } from "../../shared/types";
 import {
@@ -25,9 +27,11 @@ import {
 } from "../../shared/constants";
 import {
   assembleWithdrawTabs,
+  buildWithdrawTabQuery,
   calculateServiceFee,
   filterAndSortWithdrawRows,
   isThirdInterConnectWithdrawType,
+  isThirdWalletTabId,
   parseOrderLimitMoneyConfig,
 } from "../../shared/utils";
 import {
@@ -50,6 +54,7 @@ export function useWithdrawData({ initData = true }: Options) {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const toast = useToast();
   const globalConfig: any = useSelector((state: RootState) => state?.user?.cfg_site_base);
+  const siteConfig = useSelector(stationConfig);
   const userInfo: any = useSelector((state: RootState) => state?.user?.userInfo);
   const isLogin = !!userInfo?.isLogin;
   const userRankId = userInfo?.rankId ?? userInfo?.member?.rankId;
@@ -65,12 +70,17 @@ export function useWithdrawData({ initData = true }: Options) {
   const [withdrawPassword, setWithdrawPassword] = useState("");
   const [baseIndex, setBaseIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [channelsLoaded, setChannelsLoaded] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isPwdSet, setIsPwdSet] = useState(true);
   const [selectedBankCard, setSelectedBankCard] = useState<WithdrawBankItem | null>(null);
   const [pendingOrdersCount, setPendingCount] = useState(0);
   const initializedRef = useRef(false);
   const tabRestoredRef = useRef(false);
+  const tabRestoreInFlightRef = useRef(false);
+  const withdrawTypesLengthRef = useRef(0);
+  const withdrawTypesKeyRef = useRef("");
+  const selectedTabIdRef = useRef<string | undefined>(undefined);
 
   // ── 缓存默认银行卡 ──────────────────────────────
   const getDefaultBankFromCache = useCallback(async (type: string) => {
@@ -98,6 +108,8 @@ export function useWithdrawData({ initData = true }: Options) {
     () => assembleWithdrawTabs(sortedWithdrawRaw, isLogin, userRankId),
     [sortedWithdrawRaw, isLogin, userRankId],
   );
+  const withdrawTypesRef = useRef(withdrawTypes);
+  withdrawTypesRef.current = withdrawTypes;
 
   // ── 数据加载 ─────────────────────────────────────
   const loadWithdrawTypes = useCallback(async () => {
@@ -110,6 +122,8 @@ export function useWithdrawData({ initData = true }: Options) {
       }
     } catch {
       setRawWithdrawRows(FALLBACK_WITHDRAW_RAW);
+    } finally {
+      setChannelsLoaded(true);
     }
   }, []);
 
@@ -146,7 +160,10 @@ export function useWithdrawData({ initData = true }: Options) {
           break;
         }
         case WITHDRAW_TYPE.CRYPTO: {
-          const { data } = await getMemberCrypts({ type });
+          const cryptoParam = siteConfig?.isTestSite ? tunnelCode : "2";
+          const { data } = siteConfig?.isTestSite
+            ? await getMemberCrypts({ typeCode: cryptoParam })
+            : await getMemberCryptsLegacy({ type: cryptoParam });
           if (Array.isArray(data.data)) setBankCards(makeList(data.data as UsdtCard[], defaultBank));
           break;
         }
@@ -166,7 +183,10 @@ export function useWithdrawData({ initData = true }: Options) {
           break;
       }
     } catch {}
-  }, [selectedWithdrawType, withdrawConfig?.tunnelCode, getDefaultBankFromCache]);
+  }, [selectedWithdrawType, withdrawConfig?.tunnelCode, getDefaultBankFromCache, siteConfig?.isTestSite]);
+
+  const loadBankCardsRef = useRef(loadBankCards);
+  loadBankCardsRef.current = loadBankCards;
 
   const loadPendingCount = useCallback(async () => {
     await getWithdrawRecord({ orderStatus: 1 }).then((res) => {
@@ -187,22 +207,45 @@ export function useWithdrawData({ initData = true }: Options) {
     }
   }, [initData, loadWithdrawTypes, loadBankTypes, loadPendingCount, t]);
 
-  // Tab 列表变化时收敛下标 + 同步当前 tab，并尝试恢复上次选中
+  const syncSelectedTab = useCallback((index: number, tabs: WithdrawTab[]) => {
+    const tab = tabs[index];
+    if (!tab) return;
+    const tabKey = tab.tabId ?? tab.id;
+    if (selectedTabIdRef.current === tabKey) return;
+    selectedTabIdRef.current = tabKey;
+    selectWithdrawType(tab);
+  }, []);
+
+  // Tab 列表变化时收敛下标 + 同步当前 tab，并尝试恢复上次选中（避免重复 select 引发配置/列表请求循环）
   useEffect(() => {
-    if (!withdrawTypes.length) return;
+    if (!withdrawTypes.length) {
+      withdrawTypesLengthRef.current = 0;
+      return;
+    }
 
-    void (async () => {
-      let targetIndex = 0;
+    const applyIndex = (index: number) => {
+      const tabs = withdrawTypesRef.current;
+      if (!tabs.length) return;
+      const next = Math.min(Math.max(index, 0), tabs.length - 1);
+      setBaseIndex((prev) => (prev === next ? prev : next));
+      syncSelectedTab(next, tabs);
+    };
 
-      if (!tabRestoredRef.current) {
-        tabRestoredRef.current = true;
+    if (!tabRestoredRef.current) {
+      if (tabRestoreInFlightRef.current) return;
+      tabRestoreInFlightRef.current = true;
+      withdrawTypesLengthRef.current = withdrawTypes.length;
+      withdrawTypesKeyRef.current = withdrawTypes
+        .map((tab) => tab.tabId ?? tab.id)
+        .join("|");
 
+      void (async () => {
+        let targetIndex = 0;
+        const tabs = withdrawTypesRef.current;
         const storedTabId = await getWithdrawTabId();
         if (storedTabId) {
-          const matchedIndex = withdrawTypes.findIndex((tab) => tab.tabId === storedTabId);
-          if (matchedIndex >= 0) {
-            targetIndex = matchedIndex;
-          }
+          const matchedIndex = tabs.findIndex((tab) => tab.tabId === storedTabId);
+          if (matchedIndex >= 0) targetIndex = matchedIndex;
         } else {
           const storedType = await getWithdrawType();
           if (storedType) {
@@ -215,56 +258,65 @@ export function useWithdrawData({ initData = true }: Options) {
               "6": "type-6",
             };
             const tabCategoryId = typeMap[storedType];
-            const matchedIndex = withdrawTypes.findIndex((tab) => tab.id === tabCategoryId);
-            if (matchedIndex >= 0) {
-              targetIndex = matchedIndex;
-            }
+            const matchedIndex = tabs.findIndex((tab) => tab.id === tabCategoryId);
+            if (matchedIndex >= 0) targetIndex = matchedIndex;
             await clearWithdrawType();
           }
         }
-      } else {
-        setBaseIndex((prev) => {
-          targetIndex = Math.min(prev, withdrawTypes.length - 1);
-          selectWithdrawType(withdrawTypes[targetIndex]);
-          return targetIndex;
-        });
-        return;
-      }
+        tabRestoredRef.current = true;
+        tabRestoreInFlightRef.current = false;
+        applyIndex(targetIndex);
+      })();
+      return;
+    }
 
-      setBaseIndex(targetIndex);
-      selectWithdrawType(withdrawTypes[targetIndex]);
-    })();
-  }, [withdrawTypes]);
+    const tabsKey = withdrawTypes.map((tab) => tab.tabId ?? tab.id).join("|");
+    const prevLen = withdrawTypesLengthRef.current;
+    const prevKey = withdrawTypesKeyRef.current;
+    withdrawTypesLengthRef.current = withdrawTypes.length;
+    withdrawTypesKeyRef.current = tabsKey;
+
+    if (prevLen !== withdrawTypes.length || prevKey !== tabsKey) {
+      setBaseIndex((prev) => {
+        const next = Math.min(prev, withdrawTypes.length - 1);
+        syncSelectedTab(next, withdrawTypes);
+        return next;
+      });
+    }
+  }, [withdrawTypes, syncSelectedTab]);
 
   // 切换 tab → 同步缓存 + 加载配置 + 银行卡列表
   useEffect(() => {
-    if (!selectedWithdrawType) return;
+    if (!selectedWithdrawType?.tabId) return;
+    const tabId = selectedWithdrawType.tabId;
     syncWithdrawThirdPayCodeFromTab(selectedWithdrawType);
-    void syncWithdrawTabId(selectedWithdrawType.tabId);
+    void syncWithdrawTabId(tabId);
 
-    if (selectedWithdrawType.tabId !== undefined) {
-      const cfgQuery: Record<string, string> = { configId: selectedWithdrawType.tabId };
-      getWithdrawConfig(cfgQuery).then(({ data }) => {
-        if (data.data) {
-          const limitConfig = parseOrderLimitMoneyConfig(
-            data.data.orderLimitMoneyConfig,
-            userRankId,
-          );
-          setWithdrawConfig({
-            ...data.data,
-            handleFee: data.data.handleFee || 0,
-            minDrawMoney: limitConfig.minMoney || data.data.minDrawMoney || 0,
-            maxDrawMoney: limitConfig.maxMoney || data.data.maxDrawMoney || 0,
-            cryptRate: data.data.cryptRate || 0,
-            curBetNum: data.data.curBetNum || 0,
-            drawNeedBetNum: data.data.drawNeedBetNum || 0,
-            drawInterval: data.data.drawInterval || 0,
-          });
-          loadBankCards(data.data.tunnelCode);
-        }
+    let cancelled = false;
+    const cfgQuery: Record<string, string> = { configId: tabId };
+    getWithdrawConfig(cfgQuery).then(({ data }) => {
+      if (cancelled || !data.data) return;
+      const limitConfig = parseOrderLimitMoneyConfig(
+        data.data.orderLimitMoneyConfig,
+        userRankId,
+      );
+      setWithdrawConfig({
+        ...data.data,
+        handleFee: data.data.handleFee || 0,
+        minDrawMoney: limitConfig.minMoney || data.data.minDrawMoney || 0,
+        maxDrawMoney: limitConfig.maxMoney || data.data.maxDrawMoney || 0,
+        cryptRate: data.data.cryptRate || 0,
+        curBetNum: data.data.curBetNum || 0,
+        drawNeedBetNum: data.data.drawNeedBetNum || 0,
+        drawInterval: data.data.drawInterval || 0,
       });
-    }
-  }, [selectedWithdrawType, loadBankCards, userRankId]);
+      void loadBankCardsRef.current(data.data.tunnelCode);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedWithdrawType?.tabId, selectedWithdrawType?.id, userRankId]);
 
   // ── 手续费（响应式）────────────────────────────────
   const serviceCharge = useMemo(() => {
@@ -399,36 +451,54 @@ export function useWithdrawData({ initData = true }: Options) {
   // ── 导航到添加账户页 ──────────────────────────────
   const toAddPage = useCallback(() => {
     const tab = withdrawTypes[baseIndex];
-    const type = withdrawTypeMap[tab?.id as keyof typeof withdrawTypeMap];
+    const query = buildWithdrawTabQuery({ tab, withdrawConfig });
+    if (!query) return;
     void persistWithdrawTabContext();
+    const { numericType: type, tunnelCode, tabId } = query;
     switch (tab?.id) {
       case WITHDRAW_TYPE.BANK:
-        navigation.push("wallet/addBank", { type, tunnelCode: withdrawConfig?.tunnelCode });
+        navigation.push("wallet/addBank", { type, tunnelCode, tabId });
         break;
       case WITHDRAW_TYPE.CRYPTO:
-        navigation.push("wallet/addUsdt", { type });
+        navigation.push("wallet/addUsdt", { type, tunnelCode, tabId });
         break;
       case WITHDRAW_TYPE.THIRD:
       case "type-5":
       case "type-6":
-        navigation.push("wallet/addThird", { type, tunnelCode: withdrawConfig?.tunnelCode });
+        navigation.push("wallet/addThird", { type, tunnelCode, tabId });
         break;
       case WITHDRAW_TYPE.ONLINE:
-        navigation.push("wallet/addOnline", { type });
+        navigation.push("wallet/addOnline", { type, tunnelCode, tabId });
         break;
       default:
         break;
     }
-  }, [withdrawTypes, baseIndex, withdrawConfig?.tunnelCode, navigation, persistWithdrawTabContext]);
+  }, [withdrawTypes, baseIndex, withdrawConfig, navigation, persistWithdrawTabContext]);
 
   const toAddressPage = useCallback(() => {
     const tab = withdrawTypes[baseIndex];
+    const query = buildWithdrawTabQuery({ tab, withdrawConfig });
+    if (!query) return;
+    const selectedCard = bankCards.find((c) => !!(c as { selected?: boolean }).selected) as
+      | { typeCode?: string }
+      | undefined;
     void persistWithdrawTabContext();
     navigation.push("wallet/bankAddress", {
-      type: tab?.id,
-      tunnelCode: withdrawConfig?.tunnelCode,
+      type: query.semanticType,
+      tunnelCode: query.tunnelCode,
+      tabId: query.tabId,
+      ...(isThirdWalletTabId(tab?.id) && selectedCard?.typeCode
+        ? { typeCode: selectedCard.typeCode }
+        : {}),
     });
-  }, [withdrawTypes, baseIndex, withdrawConfig?.tunnelCode, navigation, persistWithdrawTabContext]);
+  }, [
+    withdrawTypes,
+    baseIndex,
+    bankCards,
+    withdrawConfig,
+    navigation,
+    persistWithdrawTabContext,
+  ]);
 
   // ── 登录态变化时同步密码设置状态 ─────────────────
   useEffect(() => {
@@ -441,10 +511,11 @@ export function useWithdrawData({ initData = true }: Options) {
 
   const setBaseIndexWithSelection = useCallback(
     (index: number) => {
-      setBaseIndex(index);
-      selectWithdrawType(withdrawTypes[index]);
+      const next = Math.min(Math.max(index, 0), withdrawTypes.length - 1);
+      setBaseIndex(next);
+      syncSelectedTab(next, withdrawTypes);
     },
-    [withdrawTypes],
+    [withdrawTypes, syncSelectedTab],
   );
 
   return {
@@ -458,6 +529,7 @@ export function useWithdrawData({ initData = true }: Options) {
     withdrawTypes,
     baseIndex,
     isLoading,
+    channelsLoaded,
     error,
     isWithdrawFormValid,
     isWithdrawValid,

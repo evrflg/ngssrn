@@ -9,7 +9,6 @@ import { ModalRefs } from "@/components/common/BaseModal";
 import BaseTab from "@/components/common/BaseTab";
 import { Colors } from "@/constants/Colors";
 import { useTheme } from "@/hooks/theme/ThemeProvider";
-import { useThemeColor } from "@/hooks/useThemeColor";
 import { queryThirdMember } from "@/api";
 import { accInfoAsync } from "@/store/user/userSlice";
 import { AppDispatch } from "@/store/store";
@@ -17,13 +16,14 @@ import { useFocusEffect, useRouter } from "expo-router";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
-  ActivityIndicator,
   Image,
   Platform,
+  Pressable,
   ScrollView,
   StyleSheet,
   View,
 } from "react-native";
+import { Icon } from "@rneui/themed";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import { useDispatch } from "react-redux";
 import { BaseButton } from "@/components/ui/BaseButton";
@@ -47,7 +47,6 @@ export default function Withdraw() {
   const dispatch: AppDispatch = useDispatch();
   const { theme } = useTheme();
   const { t } = useTranslation();
-  const primaryColor = useThemeColor({}, "primary");
   const toast = useToast();
   const withdrawPwdModalRef = useRef<ModalRefs>(null);
   const [pwdModal, setPwdModal] = useState(false);
@@ -64,6 +63,7 @@ export default function Withdraw() {
     withdrawTypes,
     baseIndex,
     isLoading,
+    channelsLoaded,
     isWithdrawFormValid,
     isWithdrawValid,
     serviceCharge,
@@ -135,6 +135,8 @@ export default function Withdraw() {
   useFocusEffect(
     useCallback(() => {
       if (!userInfo?.isLogin || !session?.accessToken) return;
+      if (!isReturningFromOtherPage.current) return;
+      isReturningFromOtherPage.current = false;
       void loadBankCardsRef.current();
     }, [userInfo?.isLogin, session?.accessToken]),
   );
@@ -237,6 +239,14 @@ export default function Withdraw() {
     >
       <HideScreenHeader
         title={t("pageName.withdraw")}
+        leftSelf={
+          <Pressable
+            className="flex flex-row items-center"
+            onPress={() => router.replace("/(tabs)/my")}
+          >
+            <Icon name="chevron-left" type="feather" color={Colors[theme].text} size={24} />
+          </Pressable>
+        }
         rightEvent={{
           rightText: t("pageName.withdrawRecord"),
           onRightPress: () => router.push("/wallet/withdrawRecord"),
@@ -258,23 +268,9 @@ export default function Withdraw() {
           <View className={`px-3 mb-3 bg-${theme}-background gap-3`}>
             <BanlanceInfo />
 
-            {withdrawTypes.length === 0 ? (
-              isLoading ? (
-                <View className="items-center justify-center py-16">
-                  <ActivityIndicator size="large" color={primaryColor} />
-                </View>
-              ) : (
-                <WithdrawUnavailablePanel
-                  minDrawMoney={withdrawLimit.minDrawMoney}
-                  maxDrawMoney={withdrawLimit.maxDrawMoney}
-                  handleFee={serviceCharge}
-                  curBetNum={withdrawConfig?.curBetNum}
-                  drawNeedBetNum={withdrawConfig?.drawNeedBetNum}
-                  freeDrawTimes={withdrawConfig?.freeDrawTimes}
-                  drawTimes={withdrawConfig?.drawTimes}
-                />
-              )
-            ) : (
+            {withdrawTypes.length === 0 && channelsLoaded ? (
+              <WithdrawUnavailablePanel />
+            ) : withdrawTypes.length > 0 ? (
               <>
                 <BaseTab
                   selectedIndex={baseIndex}
@@ -289,6 +285,7 @@ export default function Withdraw() {
                 {/* 绑卡区域 */}
                 <CardArea
                   currentBankCard={currentBankCard}
+                  withdrawConfig={withdrawConfig}
                   selectedWithdrawType={selectedWithdrawType}
                   isThirdInterConnectWallet={isThirdInterConnectWallet}
                   interConnectWallet={interConnectWallet}
@@ -344,7 +341,7 @@ export default function Withdraw() {
                   />
                 </View>
               </>
-            )}
+            ) : null}
           </View>
         </ScrollView>
       </View>

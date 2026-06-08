@@ -72,9 +72,11 @@ export default function Recharge() {
     [selectedTunnel],
   );
 
-  const { giftMoney, isShowGiftMoney } = useDepositBonus(
+  const skipDepositGift = !joinDepositGift;
+  const { giftMoney, walletType, isCalculatingBonus, exhaustedRemaining } = useDepositBonus(
     currentRecharge?.id === "online" ? (selectedTunnel as any)?.id : undefined,
     amount,
+    skipDepositGift,
   );
 
   const {
@@ -110,7 +112,6 @@ export default function Recharge() {
     }
     return "";
   }, [currentRecharge, currentPay, selectedTunnel]);
-  console.log('------------> ', { explainRemark })
 
   const showBackendRemarkOnly = currentRecharge?.id === "online";
 
@@ -246,10 +247,13 @@ export default function Recharge() {
               onRefreshWallet={onRefreshWallet}
               onGoToWallet={goToWallet}
             />
-            {isShowGiftMoney && (
+            {currentRecharge?.id === "online" && (
               <DepositGiftRow
                 giftMoney={giftMoney}
+                walletType={walletType}
                 joinDepositGift={joinDepositGift}
+                isCalculatingBonus={isCalculatingBonus}
+                exhaustedRemaining={exhaustedRemaining}
                 onToggle={() => setJoinDepositGift(!joinDepositGift)}
               />
             )}
@@ -261,6 +265,7 @@ export default function Recharge() {
               isLoading={isLoading}
               amount={amount}
               giftMoney={giftMoney}
+              walletType={walletType}
               joinDepositGift={joinDepositGift}
               showBonus={showBonusBtn}
               onPress={handleRechargeSubmit}

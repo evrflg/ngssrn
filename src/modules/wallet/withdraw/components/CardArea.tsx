@@ -2,14 +2,19 @@ import { InterConnectWalletBlock } from "@/components/wallet/InterConnectWalletB
 import { I18nText } from "@/components/I18nText";
 import { useTheme } from "@/hooks/theme/ThemeProvider";
 import React, { useMemo } from "react";
-import { Image, ImageSourcePropType, TouchableOpacity, View } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 import { WITHDRAW_TYPE } from "../../shared/constants";
-import { InterConnectWallet, WithdrawBankItem, WithdrawTab } from "../../shared/types";
+import {
+  getWithdrawalMethodDisplay,
+  getWithdrawCardIcon,
+} from "../../shared/utils";
+import { InterConnectWallet, WithdrawBankItem, WithdrawConfig, WithdrawTab } from "../../shared/types";
 import { WithdrawalMethodBlock } from "./WithdrawalMethodBlock";
 
 interface CardAreaProps {
   /** 当前已选中的银行卡（由 bankCards.find(selected) 计算） */
   currentBankCard: WithdrawBankItem | undefined;
+  withdrawConfig: WithdrawConfig | null;
   selectedWithdrawType: WithdrawTab | null;
   isThirdInterConnectWallet: boolean;
   interConnectWallet: InterConnectWallet;
@@ -25,18 +30,10 @@ interface CardAreaProps {
   onGoToWallet: () => void;
 }
 
-function getCardIcon(withdrawTypeId?: string): ImageSourcePropType {
-  switch (withdrawTypeId) {
-    case WITHDRAW_TYPE.CRYPTO:
-      return require("@/assets/images/wallet/usdt-logo.png");
-    default:
-      return require("@/assets/images/wallet/pix.png");
-  }
-}
-
 export const CardArea = React.memo(
   ({
     currentBankCard,
+    withdrawConfig,
     selectedWithdrawType,
     isThirdInterConnectWallet,
     interConnectWallet,
@@ -54,8 +51,8 @@ export const CardArea = React.memo(
     const { theme } = useTheme();
 
     const cardIcon = useMemo(
-      () => getCardIcon(selectedWithdrawType?.id),
-      [selectedWithdrawType?.id],
+      () => getWithdrawCardIcon(selectedWithdrawType?.id, withdrawConfig?.iconUrl),
+      [selectedWithdrawType?.id, withdrawConfig?.iconUrl],
     );
 
     if (isThirdInterConnectWallet) {
@@ -72,28 +69,18 @@ export const CardArea = React.memo(
     }
 
     if (currentBankCard) {
-      const card = currentBankCard as any;
-      const userName =
-        selectedWithdrawType?.id === WITHDRAW_TYPE.BANK ? card.realName : card.username;
-      let walletAddress = "";
-      switch (selectedWithdrawType?.id) {
-        case WITHDRAW_TYPE.BANK:
-          walletAddress = card.cardNo;
-          break;
-        case WITHDRAW_TYPE.ONLINE:
-          walletAddress = card.pix;
-          break;
-        default:
-          walletAddress = card.cardNo || card.address;
-          break;
-      }
+      const card = currentBankCard as Record<string, unknown>;
+      const { title, text, realName } = getWithdrawalMethodDisplay(
+        card,
+        selectedWithdrawType?.id,
+      );
 
       return (
         <View className="mb-4">
           <WithdrawalMethodBlock
-            title={card.bankName || card.bankCode || card.typeCode || ""}
-            text={walletAddress}
-            realName={userName || ""}
+            title={title}
+            text={text}
+            realName={realName}
             icon={cardIcon}
             onPress={onGoToAddressPage}
           />

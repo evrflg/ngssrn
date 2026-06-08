@@ -142,7 +142,7 @@
     "withdraw": "提現",
     "rebate": "返水",
     "task": "任務",
-    "beDealt": "待定獎金",
+    "beDealt": "待領取",
     "specialBonus": "神秘獎金",
     "memberDay": "會員日",
     "rescueFunds": "救援金",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "轉帳資訊",
       "rechargeAmount": "充值金額",
       "skipPromotion": "不要參加",
+      "bonusPoints": "獎金",
       "receiveName": "姓名",
       "bankCard": "帳號",
       "rate": "USDT 匯率",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "普通提現",
       "crypto": "虛擬幣提現",
-      "pix": "PIX提現"
+      "pix": "PIX提現",
+      "thirdPartyWallet": "三方錢包",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "刷新",
     "balance": "餘額",

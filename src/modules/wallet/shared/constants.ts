@@ -71,3 +71,20 @@ export const FALLBACK_WITHDRAW_RAW = [
 
 /** bankCode 前缀：需要特殊处理的大类 */
 export const SELF_BANK_CODE_RE = /^SELF/;
+
+/** withdrawType根据类型判断显示体现文字*/
+export const getWithdrawTypeI18nKey = (withdrawType?: number): string => {
+  switch (withdrawType) {
+    case 1:
+      return "wallet.withdrawType.normal";
+    case 2:
+      return "wallet.withdrawType.crypto";
+    case 4:
+      return "wallet.withdrawType.thirdPartyWallet";
+    case 5:
+      return "wallet.withdrawType.frePay";
+    case 3:
+    default:
+      return "wallet.withdrawType.pix";
+  }
+};

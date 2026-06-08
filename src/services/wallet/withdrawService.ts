@@ -22,6 +22,7 @@ export const fetchBankListInfo = async (params: any) => {
           text: bank.bankName || "", // Keep for compatibility
           value: bank.bankCode || "",
           payCode: bank.payCode,
+          tunnelTypeCode: bank.tunnelTypeCode,
         }));
         return { bankSelectOptions };
       } else {

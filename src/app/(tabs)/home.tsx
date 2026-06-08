@@ -1,5 +1,7 @@
 import { AutoUpdateView } from "@/components/common/AutoUpdateView";
 import { Colors } from "@/constants/Colors";
+import { getCapturedEntryQueryParams } from "@/utils/navigation/entryQuery";
+import { useLocalSearchParams, useRootNavigationState, useRouter } from "expo-router";
 import AppDownBtn from "@/components/home/components/AppDownBtn";
 import EntryBar from "@/components/home/components/EntryBar";
 import { Skeleton } from "@/components/home/components/Skeleton";
@@ -10,7 +12,7 @@ import { useTheme } from "@/hooks/theme/ThemeProvider";
 import { RootState } from "@/store/store";
 import { useIsFocused } from "@react-navigation/native";
 import type { ReactNode } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   NativeModules,
   Platform,
@@ -68,6 +70,28 @@ function HomeScreenRoot({
   children: ReactNode;
 }) {
   const pad = useNativeHomeSafePadding();
+  const router = useRouter();
+  const navState = useRootNavigationState();
+  const routeParams = useLocalSearchParams();
+  const didApplyEntryParamsRef = useRef(false);
+
+  useEffect(() => {
+    if (!isWeb || didApplyEntryParamsRef.current || !navState?.key) return;
+
+    const entryParams = getCapturedEntryQueryParams();
+    if (!Object.keys(entryParams).length) return;
+
+    const needsParams = Object.entries(entryParams).some(([key, value]) => {
+      const current = routeParams[key];
+      if (Array.isArray(current)) return !current.includes(value);
+      return current !== value;
+    });
+    if (!needsParams) return;
+
+    didApplyEntryParamsRef.current = true;
+    router.setParams(entryParams);
+  }, [routeParams, router, navState]);
+
   useEffect(()=>{
     if(isWeb && window?.location){
       //如何url包含fromPwa=true，则设置(window as any).isFromPwa = true

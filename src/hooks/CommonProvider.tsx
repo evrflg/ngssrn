@@ -81,7 +81,7 @@ export function CommonProvider({ children }: { children: React.ReactNode }) {
     (prev, next) => prev?.isLogin === next?.isLogin,
   );
   const prevIsLoginRef = React.useRef(Boolean(userInfo?.isLogin));
-  const { i18n, t } = useTranslation();
+  const { i18n } = useTranslation();
   const splashHiddenRef = React.useRef(false);
   const loadedErrorCodesRef = React.useRef<Set<string>>(new Set());
   const loadingErrorCodesRef = React.useRef<Partial<Record<string, Promise<boolean>>>>({});
@@ -92,10 +92,10 @@ export function CommonProvider({ children }: { children: React.ReactNode }) {
     void SplashScreen.hideAsync().catch(() => {});
   }, []);
 
-  const reLoginAfterAuthLoss = React.useCallback(() => {
-    pushLoginAfterAuthLoss();
-    DeviceEventEmitter.emit("showWarnMsg", { msg: t("login.pleaseReLogin") });
-  }, [t]);
+  const reLoginAfterAuthLoss = React.useCallback((showExpiredToast = false) => {
+    pushLoginAfterAuthLoss({ showExpiredToast });
+    // 仅 showExpiredToast 时由 login 页 isAfterAuthLoss 弹出「登录已失效」
+  }, []);
 
   /** 避免网络一直失败时永远卡在启动屏 */
   useEffect(() => {
@@ -106,21 +106,25 @@ export function CommonProvider({ children }: { children: React.ReactNode }) {
   }, [hideSplashOnce]);
 
   useEffect(() => {
-    const subscription = DeviceEventEmitter.addListener("isUserLogout", () => {
+    const subscription = DeviceEventEmitter.addListener(
+      "isUserLogout",
+      (payload?: { showExpiredToast?: boolean }) => {
+      const showExpiredToast = Boolean(payload?.showExpiredToast);
       dispatch(changeUserInfo({}));
       dispatch(changeSessionState({}));
       dispatch(clearTurntableRedPacketStatus());
       dispatch(clearReminderCount());
       setConfigSession("");
       setStoreJson("session", null);
-      reLoginAfterAuthLoss();
+      reLoginAfterAuthLoss(showExpiredToast);
       setTimeout(() => {
         dispatch(changeIsShowGameModel(false))
       }, 500);
-    });
+    },
+    );
 
     return () => subscription.remove(); // 组件卸载时清除
-  }, []);
+  }, [dispatch, reLoginAfterAuthLoss]);
 
   useEffect(() => {
     void removeStorage("stopPassExtraEvent");

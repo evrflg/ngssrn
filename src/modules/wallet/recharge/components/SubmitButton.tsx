@@ -25,7 +25,7 @@ const GRAD_BOTTOM = "#DCA21B";
 const GRAD_STROKE = "#BF9126";
 
 function BonusAmountText({ amount }: { amount: string }) {
-  const fontSize = rf(24);
+  const fontSize = rf(22);
   const svgH = Math.ceil(fontSize * 1.2);
   const approxW = Math.ceil(Math.max(amount.length * fontSize * 0.58 + 8, fontSize * 2));
   const gradId = useId().replace(/[^a-zA-Z0-9]/g, "_");
@@ -60,13 +60,14 @@ interface SubmitButtonProps {
   isLoading: boolean;
   amount: string;
   giftMoney: number;
+  walletType?: number;
   joinDepositGift: boolean;
   showBonus: boolean;
   onPress: () => void;
 }
 
 export const SubmitButton = React.memo(
-  ({ isLoading, amount, giftMoney, joinDepositGift, showBonus, onPress }: SubmitButtonProps) => {
+  ({ isLoading, amount, giftMoney, walletType = 0, joinDepositGift, showBonus, onPress }: SubmitButtonProps) => {
     const { theme } = useTheme();
     const { t } = useTranslation();
 
@@ -90,6 +91,9 @@ export const SubmitButton = React.memo(
               <Image source={starlightBg} style={styles.bonusBadgeBgImage} resizeMode="stretch" />
               <Text style={styles.bonusBadgeText} numberOfLines={1}>
                 +{formatMoney(giftMoney)}
+                {walletType === 1 && (
+                  <Text style={styles.bonusPointsLabel}> {t("wallet.recharge.bonusPoints")}</Text>
+                )}
               </Text>
             </View>
           </View>
@@ -112,7 +116,7 @@ export const SubmitButton = React.memo(
                   <ActivityIndicator color={loadingColor} size="small" />
                 ) : showBonus ? (
                   <View style={styles.row}>
-                    <Text style={[styles.label, { color: labelColor, fontSize: rf(15) }]}>
+                    <Text style={[styles.label, { color: labelColor, fontSize: rf(14) }]}>
                       {t("pageName.recharge")}
                     </Text>
                     <BonusAmountText amount={String(amount)} />
@@ -152,7 +156,7 @@ const styles = StyleSheet.create({
     zIndex: 2,
     top: -2,
     left: "50%",
-    marginLeft: 60,
+    marginLeft: 55,
   },
   bonusBadgeBg: {
     position: "relative",
@@ -175,4 +179,5 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   bonusBadgeText: { color: "#fff", fontSize: 12, fontWeight: "600", lineHeight: 13.2 },
+  bonusPointsLabel: { fontSize: 10 },
 });

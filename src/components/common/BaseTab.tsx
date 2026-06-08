@@ -113,12 +113,6 @@ const BaseTab = ({
     }
   }, [tabWidths, autoWidth, tabs.length]);
 
-  useEffect(() => {
-    if (selectedIndex != null) {
-      setTimeout(() => handleTabPress(selectedIndex), 100);
-    }
-  }, [selectedIndex]);
-
   const handleTabPress = (index: number) => {
     setIndex(index);
     if (onChange) onChange(index);
@@ -150,6 +144,47 @@ const BaseTab = ({
       });
     }
   };
+
+  /** 受控 selectedIndex 变化时仅同步指示器/横向滚动，勿再 setIndex（否则会与父级 tab 状态互相触发） */
+  useEffect(() => {
+    if (selectedIndex == null || wrap) return;
+
+    const timer = setTimeout(() => {
+      if (autoWidth && tabPositions.length > 0) {
+        const tabCenter = tabPositions[selectedIndex];
+        const scrollOffset = tabCenter - parentWidth / 2;
+        scrollRef?.current?.scrollTo({
+          x: Math.max(0, scrollOffset),
+          animated: true,
+        });
+        return;
+      }
+
+      const tabWithGapWidth = tabWidth + gapSize;
+      Animated.spring(indicatorRef, {
+        toValue: selectedIndex * tabWithGapWidth,
+        useNativeDriver: false,
+      }).start();
+
+      const scrollOffset =
+        selectedIndex * tabWithGapWidth - parentWidth / 2 + tabWidth / 2;
+      scrollRef?.current?.scrollTo({
+        x: Math.max(0, scrollOffset),
+        animated: true,
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [
+    selectedIndex,
+    wrap,
+    autoWidth,
+    tabPositions,
+    parentWidth,
+    tabWidth,
+    gapSize,
+    indicatorRef,
+  ]);
 
   // 处理tab布局变化
   const handleTabLayout = (index: number, width: number) => {

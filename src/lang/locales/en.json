@@ -142,7 +142,7 @@
     "withdraw": "Withdraw",
     "rebate": "Cash\nBack",
     "task": "Task",
-    "beDealt": "Processing\nBonus",
+    "beDealt": "Pending\nClaim",
     "specialBonus": "Mystery\nBonus",
     "memberDay": "Member\nDay",
     "rescueFunds": "Rescue funds",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "Transfer Information",
       "rechargeAmount": "Deposit Amount",
       "skipPromotion": "Do not participate",
+      "bonusPoints": "Bonus Points",
       "receiveName": "Name",
       "bankCard": "Account",
       "rate": "USDT rate",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "Normal Withdrawal",
       "crypto": "Crypto Withdrawal",
-      "pix": "PIX Withdrawal"
+      "pix": "PIX Withdrawal",
+      "thirdPartyWallet": "Third-Party Wallet",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "Refresh",
     "balance": "Balance",

@@ -134,6 +134,20 @@ const BalanceGold = () => {
     return target ? target.label : "--";
   };
 
+  const getRechargeAmount = (item: BonusTaskItem) => {
+    if (item.unlockType === 1) {
+      //打碼
+      return item.optional?.dailyWagering ?? 0;
+    } else if (item.unlockType === 2) {
+      //充值
+      return item.optional?.rechargeAmount ?? 0;
+    } else if (item.unlockType === 3) {
+      //已解鎖天数
+      return item.optional?.unlockDays ?? 0;
+    }
+    return 0;
+  };
+
   // 显示规则弹窗
   const showRule = (ruleDesc: string = "") => {
     setCurrentRuleDesc(ruleDesc);
@@ -428,7 +442,7 @@ const BalanceGold = () => {
                           >
                             /{" "}
                             <Text className={`text-${theme}-text`}>
-                              {item.optional?.rechargeAmount ?? 0}
+                              {getRechargeAmount(item)}
                             </Text>
                           </Text>
                         </View>

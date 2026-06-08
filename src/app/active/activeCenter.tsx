@@ -24,7 +24,6 @@ import { AutoHeightWebView } from "@/components/common/AutoHeightWebView";
 import { SimpleHeader } from "@/components/common/Header";
 import ActTime from "@/components/icons/active/ActTime";
 import ActiveTime from "@/components/icons/active/ActiveTime";
-import ActContent from "@/components/icons/active/ActContent";
 import { missionTheme } from "@/components/active/components/activeConfg";
 import RulesIcon from "@/components/icons/active/vip/RulesIcon";
 import NeiRong from "@/components/icons/active/NeiRong";
@@ -34,7 +33,6 @@ import { useToast } from "@/components/common/toast";
 import Promotion from "@/components/active/activeCenter/Promotion";
 import CustomActivity from "@/components/active/activeCenter/CustomActivity";
 import { setActiveTitle } from "@/store/active/activeSlice";
-import NoData from "@/components/common/NoData";
 import { useTranslation } from "react-i18next";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { activeTheme } from "@/components/active/components/activeConfg";
@@ -88,7 +86,6 @@ const formatSecond = "YYYY-MM-DD HH:mm:ss";
 
 const ACTIVITY_CENTER_FLAT_LIST_EMPTY: readonly string[] = [];
 
-
 const index = () => {
   const { t } = useTranslation();
   const router = useRouter();
@@ -110,10 +107,20 @@ const index = () => {
     [activityList],
   );
 
-  const isShowIntroduceDetail = useMemo(() => {
-    if (!actDetail?.introductionDetail) return false;
-    return actDetail?.activityType === 0 || actDetail?.activityType === 8;
-  }, [actDetail]);
+  const isShowTime = useMemo(() => {
+    const endTime = actDetail?.endTime;
+    if (!endTime) return false;
+    const endDate = new Date(endTime);
+    if (Number.isNaN(endDate.getTime())) return true;
+    return endDate.getFullYear() !== 9999;
+  }, [actDetail?.endTime]);
+
+  const ruleDescLines = useMemo(() => {
+    if (!actDetail?.ruleDesc) return [];
+    return String(actDetail.ruleDesc)
+      .split("\n")
+      .filter((line) => line.trim() !== "");
+  }, [actDetail?.ruleDesc]);
 
   const searchParams = useLocalSearchParams<{
     id: string;
@@ -171,7 +178,7 @@ const index = () => {
       bonus: t("active.center.fanxian"),
     },
     8: { name: "8", bonus: "8" },
-    9: { name: "9", bonus: "9" },
+    9: { name: t("active.center.winningTime"), bonus: t("agent.bonus") },
   };
 
   useEffect(() => {
@@ -215,7 +222,10 @@ const index = () => {
       <ActiveCenterRescueFundsTable
         themeKey={theme}
         t={t}
-        colors={{ background: Colors[theme].background, text: Colors[theme].text }}
+        colors={{
+          background: Colors[theme].background,
+          text: Colors[theme].text,
+        }}
         missionTheme={missionTheme}
         ruleVOList={actDetail?.ruleVOList}
         containerStyle={{ marginTop: 16 }}
@@ -229,7 +239,10 @@ const index = () => {
     return (
       <ActiveCenterStandardTable
         themeKey={theme}
-        colors={{ background: Colors[theme].background, text: Colors[theme].text }}
+        colors={{
+          background: Colors[theme].background,
+          text: Colors[theme].text,
+        }}
         missionTheme={missionTheme}
         headerLeftText={titleMap[Number(activityType) as RowTitleType].name}
         headerRightText={titleMap[Number(activityType) as RowTitleType].bonus}
@@ -310,7 +323,7 @@ const index = () => {
       router.push("/login");
       return;
     }
-    
+
     if (mineClaimState !== 1 || !actDetail?.id) return;
     toast.loading(true);
     try {
@@ -338,8 +351,17 @@ const index = () => {
   };
 
   const handleBottomStripCardSelect = useCallback(
-    ({ id, text, type, actDepositType }:
-      { id: number; text: string; type: number; actDepositType?: number }) => {
+    ({
+      id,
+      text,
+      type,
+      actDepositType,
+    }: {
+      id: number;
+      text: string;
+      type: number;
+      actDepositType?: number;
+    }) => {
       if (id === Number(searchParams.id)) return;
       dispatch(setActiveTitle({ title: text }));
       router.setParams({
@@ -365,7 +387,7 @@ const index = () => {
         keyExtractor={() => "activity-center-scroll"}
         renderItem={() => null}
         showsVerticalScrollIndicator={false}
-        className={`${!isSpecialBonusActivity && !isMemberDayActivity && 'mx-2'} mb-4 hide-scrollbar`}
+        className={`${!isSpecialBonusActivity && !isMemberDayActivity && "mx-2"} mb-4 hide-scrollbar`}
         style={{ flex: 1 }}
         nestedScrollEnabled
         keyboardShouldPersistTaps="handled"
@@ -385,6 +407,22 @@ const index = () => {
               <>
                 {isStandard(Number(activityType)) && renderStandardActivity()}
                 {Number(activityType) === 6 && renderRescueFundsTable()}
+                {Number(activityType) === 9 && (
+                  <ActiveCenterStandardTable
+                    themeKey={theme}
+                    colors={{
+                      background: Colors[theme].background,
+                      text: Colors[theme].text,
+                    }}
+                    missionTheme={missionTheme}
+                    headerLeftText={titleMap[9].name}
+                    headerRightText={titleMap[9].bonus}
+                    activityType={9}
+                    ruleVOList={actDetail?.ruleVOList}
+                    containerStyle={{ marginTop: 16 }}
+                    showRequirementPrefix={false}
+                  />
+                )}
                 {Number(activityType) === 12 && renderMiningActivity()}
                 {/* 推广类型 显示推广宝箱和领取规则，不显示时间 */}
                 {Number(activityType) == 1 ? (
@@ -405,7 +443,9 @@ const index = () => {
                       </View>
                       <View
                         className="w-full p-4 rounded-lg justify-center items-center"
-                        style={{ backgroundColor: missionTheme[theme].content.a }}
+                        style={{
+                          backgroundColor: missionTheme[theme].content.a,
+                        }}
                       >
                         {!isLoading && (
                           <Text
@@ -415,9 +455,7 @@ const index = () => {
                               fontSize: rf(12),
                             }}
                           >
-                            {actDetail?.optional?.displayMode === 1
-                              ? t("active.center.bxljjl")
-                              : t("active.center.hbljjl")}
+                            {t("active.center.bxljjl")}
                           </Text>
                         )}
                       </View>
@@ -455,7 +493,7 @@ const index = () => {
                   )
                 )}
                 {/* 活动时间 */}
-                {Number(activityType) != 12 && (
+                {isShowTime && (
                   <View className="mt-4">
                     <View className="justify-start flex-row flex-wrap items-center mb-2">
                       <ActTime fill={Colors[theme].primary} />
@@ -475,7 +513,10 @@ const index = () => {
                     >
                       <Text
                         className="text-left self-start"
-                        style={{ color: Colors[theme].lightText, fontSize: rf(12) }}
+                        style={{
+                          color: Colors[theme].lightText,
+                          fontSize: rf(12),
+                        }}
                       >
                         {actDetail?.success
                           ? `${dayjs(actDetail?.startTime).format(formatSecond)} - ${dayjs(actDetail?.endTime).format(formatSecond)}`
@@ -484,55 +525,8 @@ const index = () => {
                     </View>
                   </View>
                 )}
-                {/* 活动简介*/}
-                {!isLoading && !isShowIntroduceDetail && (
-                  <View className="mt-4">
-                    <View className="justify-start flex-row flex-wrap items-center mb-3">
-                      <ActContent fill={Colors[theme].primary} />
-                      <Text
-                        className="ml-2"
-                        style={[
-                          styles.bonusTitle,
-                          { color: Colors[theme].text, fontSize: rf(14) },
-                        ]}
-                      >
-                        {t("active.center.content")}
-                        {/* {Number(activityType) == 5 ? t("active.center.detail") : t("active.center.content")} */}
-                      </Text>
-                    </View>
-                    <View
-                      className="w-full px-4 py-4 rounded-lg justify-center items-center"
-                      style={{ backgroundColor: missionTheme[theme].content.a }}
-                    >
-                      {actDetail?.introduction ? (
-                        <AutoHeightWebView
-                          width={screen.get("screen").width - 40}
-                          htmlStyle={{
-                            paddingRight: 4,
-                            paddingLeft: 4,
-                            fontSize: rf(12),
-                            textAlign: "left",
-                            alignSelf: "flex-start",
-                            color: Colors[theme].lightText,
-                            backgroundColor: missionTheme[theme].content.a,
-                          }}
-                          source={
-                            actDetail?.introductionDetail == null
-                              ? ""
-                              : actDetail?.introductionDetail
-                          }
-                          autoHeight
-                          setInnerHTML
-                        />
-                      ) : (
-                        <NoData />
-                      )}
-                    </View>
-                  </View>
-                )}
-
-                {/* 活动内容 */}
-                {!isLoading && isShowIntroduceDetail && (
+                {/* 活动详情 */}
+                {!isLoading && actDetail?.introductionDetail && (
                   <View className="my-4">
                     <View className="justify-start flex-row flex-wrap items-center mb-3">
                       <NeiRong fill={Colors[theme].primary} />
@@ -561,7 +555,7 @@ const index = () => {
                           color: Colors[theme].lightText,
                           backgroundColor: missionTheme[theme].content.a,
                         }}
-                        source={actDetail?.introductionDetail}
+                        source={actDetail.introductionDetail}
                         autoHeight
                         setInnerHTML
                       />
@@ -569,8 +563,8 @@ const index = () => {
                   </View>
                 )}
 
-                {/* 宝箱类型显示活动规则 */}
-                {!isLoading && actDetail?.ruleDesc !== null && (
+                {/* 活动规则 */}
+                {!isLoading && ruleDescLines.length > 0 && (
                   <View className="mt-4">
                     <View className="justify-start flex-row flex-wrap items-center mb-3">
                       <RulesIcon fill={Colors[theme].primary} />
@@ -588,12 +582,18 @@ const index = () => {
                       className="w-full p-4 rounded-lg justify-center items-center"
                       style={{ backgroundColor: missionTheme[theme].content.a }}
                     >
-                      <Text
-                        className="text-left self-start"
-                        style={{ color: Colors[theme].lightText, fontSize: rf(12) }}
-                      >
-                        {actDetail?.ruleDesc}
-                      </Text>
+                      {ruleDescLines.map((line, index) => (
+                        <Text
+                          key={index}
+                          className="text-left self-start w-full"
+                          style={{
+                            color: Colors[theme].lightText,
+                            fontSize: rf(12),
+                          }}
+                        >
+                          {line}
+                        </Text>
+                      ))}
                     </View>
                   </View>
                 )}
@@ -655,7 +655,10 @@ const index = () => {
                     >
                       {t("active.mysteriousMine.miningTimes")}
                       <Text
-                        style={{ color: Colors[theme].primary, fontSize: rf(12) }}
+                        style={{
+                          color: Colors[theme].primary,
+                          fontSize: rf(12),
+                        }}
                       >
                         {" "}
                         {mineClaimTimes}
@@ -689,7 +692,8 @@ const index = () => {
                                 {
                                   fontSize: rf(13),
                                   color: Colors[theme].text,
-                                  backgroundColor: Colors[theme].mineTimeBgColor,
+                                  backgroundColor:
+                                    Colors[theme].mineTimeBgColor,
                                 },
                                 status === "active" && {
                                   color: Colors[theme].primary,
@@ -726,7 +730,9 @@ const index = () => {
               arrowColor={Colors[theme].text}
               arrowBgColor={Colors[theme].btnText}
               onSelect={handleBottomStripCardSelect}
-              containerStyle={Number(activityType) === 6 && { marginBottom: 80 }}
+              containerStyle={
+                Number(activityType) === 6 && { marginBottom: 80 }
+              }
             />
             <View className="h-[120px]" />
           </>

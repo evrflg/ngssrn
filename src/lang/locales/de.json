@@ -142,7 +142,7 @@
     "withdraw": "Auszahlen",
     "rebate": "Cash\nBack",
     "task": "Aufgabe",
-    "beDealt": "In\nBearbeitung",
+    "beDealt": "Ausstehend",
     "specialBonus": "Mystery\nBonus",
     "memberDay": "Mitglieder\nTag",
     "rescueFunds": "Rettungsfonds",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "Überweisungsinformationen",
       "rechargeAmount": "Einzahlungsbetrag",
       "skipPromotion": "Nicht teilnehmen",
+      "bonusPoints": "Bonus",
       "receiveName": "Name",
       "bankCard": "Konto",
       "rate": "USDT-Wechselkurs",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "Normale Auszahlung",
       "crypto": "Krypto-Auszahlung",
-      "pix": "PIX-Auszahlung"
+      "pix": "PIX-Auszahlung",
+      "thirdPartyWallet": "Drittanbieter-Wallet",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "Aktualisieren",
     "balance": "Saldo",

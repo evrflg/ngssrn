@@ -1,4 +1,5 @@
 import { post, get, put } from "./use-client";
+import { getClientType } from "@/utils/utils";
 
 export const getActivityCenterList = () => get('/api/app-api/activity/activity/get-list')//获取活动中心列表 无参
 
@@ -13,9 +14,9 @@ export const getEffectiveGameType = () => get('/api/app-api/game/record/effectiv
 
 export const getGameType = (params: any) => get('/api/app-api/system/dict-data/type', params)//获取游戏类型
 export const getActiveData = () => get('/api/app-api/activity/rebate/get-active')//获取玩家满足的返水策略
-export const getWaitPickTasks = () => get('/api/app-api/activity/reward/get-unclaimed-rewards')//待办列表 
-export const pickActs = () => put('/api/app-api/activity/reward/claim-all', true)//一键领取待办奖金(put)
-export const pickAct = (params: any) => put('/api/app-api/activity/reward/claim', params)//领取待办奖金(put)
+export const getWaitPickTasks = () => get('/api/app-api/activity/reward/get-unclaimed-rewards', { clientType: getClientType() })//待办列表
+export const pickActs = () => put('/api/app-api/activity/reward/claim-all', { clientType: getClientType() })//一键领取待办奖金(put)
+export const pickAct = (params: any) => put('/api/app-api/activity/reward/claim', { ...params, clientType: getClientType() })//领取待办奖金(put)
 
 export const getPickTaskPage = (params: any) => get('/api/app-api/activity/reward/get-reward-records', params) //领取记录
 

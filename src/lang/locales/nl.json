@@ -142,7 +142,7 @@
     "withdraw": "Terugtrekken",
     "rebate": "Cash\nBack",
     "task": "Taak",
-    "beDealt": "In\nBehandeling",
+    "beDealt": "Te claimen",
     "specialBonus": "Mystery\nBonus",
     "memberDay": "Leden\nDag",
     "rescueFunds": "Reddingsfondsen",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "Overdrachtsinformatie",
       "rechargeAmount": "Aanbetalingsbedrag",
       "skipPromotion": "Doe niet mee",
+      "bonusPoints": "Bonus",
       "receiveName": "Naam",
       "bankCard": "Account",
       "rate": "USDT-koers",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "Normale intrekking",
       "crypto": "Crypto-opname",
-      "pix": "PIX-opname"
+      "pix": "PIX-opname",
+      "thirdPartyWallet": "Portemonnee van derden",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "Vernieuwen",
     "balance": "Evenwicht",

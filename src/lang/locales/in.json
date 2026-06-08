@@ -142,7 +142,7 @@
     "withdraw": "निकालें",
     "rebate": "कैश\nबैक",
     "task": "कार्य",
-    "beDealt": "प्रक्रिया\nमें",
+    "beDealt": "लंबित\nदावा",
     "specialBonus": "रहस्य\nबोनस",
     "memberDay": "सदस्य\nदिवस",
     "rescueFunds": "बचाव पैसे",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "स्थानांतरण जानकारी",
       "rechargeAmount": "रिचार्ज राशि",
       "skipPromotion": "भाग न लें",
+      "bonusPoints": "बोनस",
       "receiveName": "नाम",
       "bankCard": "खाता",
       "rate": "यूएसडीटी विनिमय दर",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "सामान्य निकासी",
       "crypto": "क्रिप्टो निकासी",
-      "pix": "PIX निकासी"
+      "pix": "PIX निकासी",
+      "thirdPartyWallet": "तीसरे पक्ष का वॉलेट",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "ताज़ा करें",
     "balance": "शेष राशि",

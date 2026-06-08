@@ -12,6 +12,7 @@ import dayjs from "dayjs";
 import { tenantTimeZoneStore } from "@/store/tenant/tenantSlice";
 import { getDateRange, formatDate } from "@/utils/date";
 import { formatMoney } from "@/utils/utils";
+import { getWithdrawTypeI18nKey } from "@/modules/wallet/shared/constants";
 import { Ionicons } from "@expo/vector-icons";
 import Clipboard from "@react-native-clipboard/clipboard";
 import { useToast } from "../common/toast";
@@ -324,13 +325,7 @@ export const RecordList = React.forwardRef(
                       style={{ writingDirection: "ltr" }}
                     />
                     <I18nText
-                      i18nKey={
-                        item.withdrawType === 1
-                          ? "wallet.withdrawType.normal"
-                          : item.withdrawType === 2
-                            ? "wallet.withdrawType.crypto"
-                            : "wallet.withdrawType.pix"
-                      }
+                      i18nKey={getWithdrawTypeI18nKey(item.withdrawType)}
                       className={`text-${theme}-text flex-1 text-right text-xs`}
                     />
                   </View>

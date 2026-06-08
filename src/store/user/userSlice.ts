@@ -16,7 +16,7 @@ import {
   getSessionCookie,
   deleteSessionCookie,
 } from "@/utils/storage";
-import { setConfigSession } from "@/api/common/client";
+import { markActiveLoginSession, setConfigSession } from "@/api/common/client";
 import { getInviteOverview } from "@/api/post/my";
 
 interface UserState {
@@ -190,6 +190,9 @@ export const userSlice = createSlice({
       state.userProfile.bonus = action.payload?.bonus;
       state.userInfo = action.payload;
       if (action.payload?.lastLogin) state.lastLogin = action.payload.lastLogin;
+      if (action.payload?.isLogin) {
+        markActiveLoginSession();
+      }
     });
     builder.addCase(configAsync.fulfilled, (state, action) => {
       state.cfg_site_base = action.payload;

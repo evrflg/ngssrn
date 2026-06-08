@@ -11,7 +11,7 @@ import brTranslations from "./locales/br.json";
 import esTranslations from "./locales/es.json";
 import viTranslations from "./locales/vi.json";
 import thTranslations from "./locales/th.json";
-import myTranslations from "./locales/my.json";
+import msTranslations from "./locales/my.json";
 import idTranslations from "./locales/id.json";
 import inTranslations from "./locales/in.json";
 import phTranslations from "./locales/ph.json";
@@ -38,7 +38,7 @@ const resources = {
   'it-IT': { translation: itTranslations }, // 意大利语
   'ja-JP': { translation: jpTranslations }, // 日语
   'ko-KR': { translation: koTranslations }, // 韩语
-  'ms-MY': { translation: myTranslations }, // 马来西亚语
+  'ms-MY': { translation: msTranslations }, // 马来西亚语
   'nl-NL': { translation: nlTranslations }, // 荷兰语
   'pt-BR': { translation: brTranslations }, // 葡萄牙语
   'ru-RU': { translation: ruTranslations }, // 俄语

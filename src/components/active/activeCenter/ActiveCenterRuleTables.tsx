@@ -96,6 +96,7 @@ export function ActiveCenterStandardTable({
   activityType,
   ruleVOList,
   containerStyle,
+  showRequirementPrefix = true,
 }: {
   themeKey: string;
   colors: { background: string; text: string };
@@ -105,6 +106,7 @@ export function ActiveCenterStandardTable({
   activityType: number;
   ruleVOList?: RuleRow[];
   containerStyle?: StyleProp<ViewStyle>;
+  showRequirementPrefix?: boolean;
 }) {
   return (
     <View style={[styles.bonusView, { backgroundColor: colors.background }, containerStyle]}>
@@ -143,7 +145,7 @@ export function ActiveCenterStandardTable({
           ]}
         >
           <Text style={[styles.bonusCell, { color: colors.text, fontSize: rf(12) }]}>
-            {Number(activityType) != 5 && "≥"}
+            {showRequirementPrefix && Number(activityType) != 5 && "≥"}
             {Number(activityType) == 3 || Number(activityType) == 5
               ? item.depositMoney
               : item.requirementValue}

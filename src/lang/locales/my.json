@@ -142,7 +142,7 @@
     "withdraw": "Tarik",
     "rebate": "Pulangan\nTunai",
     "task": "Tugas",
-    "beDealt": "Sedang\nDiproses",
+    "beDealt": "Menunggu\nTuntut",
     "specialBonus": "Bonus\nMisteri",
     "memberDay": "Hari\nAhli",
     "rescueFunds": "Bantuan Penyelamatan",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "Maklumat Pemindahan",
       "rechargeAmount": "Jumlah cas semula",
       "skipPromotion": "Tidak berpartisipasi",
+      "bonusPoints": "Bonus",
       "receiveName": "Nama",
       "bankCard": "Akun",
       "rate": "Kurs USDT",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "Biasa",
       "crypto": "Kripto",
-      "pix": "PIX"
+      "pix": "PIX",
+      "thirdPartyWallet": "Dompet Pihak Ketiga",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "Kembalikan",
     "balance": "Baki",

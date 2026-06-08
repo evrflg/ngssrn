@@ -1,5 +1,5 @@
 import { ScrollView, View } from 'react-native'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { HideScreenHeader } from "@/components/common/Header";
 import { I18nText } from '@/components/I18nText';
 import { ControlledInput } from '@/components/ui/BaseInput';
@@ -10,6 +10,8 @@ import { NetIcon, UsdtIcon, UsdtAgainIcon, SelectedPayTypeIcon } from "@/compone
 import { useThemeColor } from "@/hooks/useThemeColor";
 import BaseModal, { ModalRefs } from '@/components/common/BaseModal';
 import { createMemberCrypt } from '@/api/post/wallet'
+import { stationConfig } from '@/store/tenant/tenantSlice'
+import { useSelector } from 'react-redux'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { router, useLocalSearchParams } from 'expo-router'
@@ -24,6 +26,8 @@ interface UsdtOption {
   id: string;
   text: string;
   value: string;
+  payCode?: string;
+  tunnelTypeCode?: string;
 }
 
 export default function addBank() {
@@ -32,6 +36,8 @@ export default function addBank() {
   const toggleModalRef = useRef<ModalRefs>(null);
   const primaryColor = useThemeColor({}, 'primary');
   const { t } = useTranslation();
+  const siteConfig = useSelector(stationConfig);
+  const isTestSite = Boolean(siteConfig?.isTestSite);
   const [loading, setLoading] = useState(false)
   const [queryParams, setQueryParams] = useState<UsdtOption | null>(null)
   const [options, setOptions] = useState<Array<UsdtOption>>([]);
@@ -64,7 +70,18 @@ export default function addBank() {
   const submitAddBank = async (data: any) => {
     if (!queryParams?.id) return;
     setLoading(true)
-    const result = await createMemberCrypt({ address: data.cardNo, typeCode: queryParams.id })
+    const result = await createMemberCrypt(
+      isTestSite
+        ? {
+            address: data.cardNo,
+            typeCode: String(queryParams.tunnelTypeCode ?? ''),
+            payCode: String(queryParams.payCode ?? ''),
+          }
+        : {
+            address: data.cardNo,
+            typeCode: String(queryParams.id),
+          },
+    )
     setLoading(false)
     if (result?.data?.data) {
       setQueryParams(null);
@@ -74,8 +91,16 @@ export default function addBank() {
     }
   }
 
+  const tunnelCode = useMemo(() => {
+    const raw = params?.tunnelCode;
+    return Array.isArray(raw) ? raw[0] : raw;
+  }, [params?.tunnelCode]);
+
   const loadBankList = useCallback(async () => {
-    await fetchBankListInfo({ type: params?.type ?? 2 })
+    await fetchBankListInfo({
+      type: params?.type ?? 2,
+      ...(tunnelCode ? { tunnelCode } : {}),
+    })
       .then(({ bankSelectOptions }) => {
         if (Array.isArray(bankSelectOptions)) {
           setOptions(bankSelectOptions);
@@ -84,7 +109,7 @@ export default function addBank() {
           };
         }
       })
-  }, [params]);
+  }, [params?.type, tunnelCode]);
 
   useEffect(() => {
     loadBankList()

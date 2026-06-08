@@ -61,7 +61,7 @@ export const TENANT_LANGUAGE_MAP = new Map<string, string>([
   ["it", "it-IT"],
   ["ja", "ja-JP"],
   ["ko", "ko-KR"],
-  ["my", "ms-MY"],
+  ["ms", "ms-MY"],
   ["nl", "nl-NL"],
   ["br", "pt-BR"],
   ["ru", "ru-RU"],
@@ -70,7 +70,7 @@ export const TENANT_LANGUAGE_MAP = new Map<string, string>([
   ["vi", "vi-VN"],
 ]);
 
-// 日期组件 locale 映射 bn、ph、my、tl、vi 等语言插件不支持，需要映射为 en
+// 日期组件 locale 映射 bn、ph、ms、tl、vi 等语言插件不支持，需要映射为 en
 export const DATE_PICKER_LOCALE_MAP = new Map<string, string>([
   ["zh-cn", "zh"],
   ["zh-tw", "zh-TW"],
@@ -161,7 +161,7 @@ export const nationArr: any = {
   it: { phone: "+39", img: require("@/assets/images/country/round/it.png") }, // it-IT
   ja: { phone: "+81", img: require("@/assets/images/country/round/ja.png") }, // ja-JP
   ko: { phone: "+82", img: require("@/assets/images/country/round/ko.png") }, // ko-KR
-  my: { phone: "+60", img: require("@/assets/images/country/round/my.png") }, // ms-MY
+  ms: { phone: "+60", img: require("@/assets/images/country/round/my.png") }, // ms-MY
   nl: { phone: "+31", img: require("@/assets/images/country/round/nl.png") }, // nl-NL
   br: { phone: "+55", img: require("@/assets/images/country/round/br.png") }, // pt-BR
   ru: { phone: "+7", img: require("@/assets/images/country/round/ru.png") }, // ru-RU

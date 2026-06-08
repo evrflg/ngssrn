@@ -1,3 +1,4 @@
+import "@/utils/navigation/entryQuery";
 import BottomNavigation from "@/components/BottomNavigation";
 import { ToastProvider } from "@/components/common/toast";
 import PaperTheme from "@/constants/paper";

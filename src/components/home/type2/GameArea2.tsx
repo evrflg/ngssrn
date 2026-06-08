@@ -29,6 +29,7 @@ import { getStoreJson } from "@/utils/storage";
 import { changeGameList, changeGameZoneDict } from "@/store/game/gameSlice";
 import NoData from "@/components/common/NoData";
 import { usePriorityPartner } from "@/hooks/usePriorityPartner";
+import { LinearGradient } from "expo-linear-gradient";
 
 /** 首页 type2 卡片：高度 = 宽度 × φ（与二级页行比例分开） */
 const CARD_GOLDEN_RATIO = 1.32;
@@ -293,10 +294,10 @@ export const GameArea2 = () => {
                   { borderTopRightRadius: index == 0 ? 10 : 0 },
                   currentIndex == index
                     ? {
-                        backgroundColor: Colors[theme].lightPrimary,
-                        borderRightWidth: 1,
-                        borderRightColor: Colors[theme].primary,
-                      }
+                      backgroundColor: Colors[theme].lightPrimary,
+                      borderRightWidth: 1,
+                      borderRightColor: Colors[theme].primary,
+                    }
                     : { borderRightWidth: 1, borderRightColor: cardBg1 },
                 ]}
               >
@@ -480,13 +481,15 @@ export const GameArea2 = () => {
                               )}
 
                               {(item?.gameType == "8" || item?.gameType == "4") && (
-                                <View className="absolute bottom-0 left-0 right-0 h-[20px]">
-                                  <Text
-                                    style={[styles.font, { color: Colors[theme].text }]}
-                                    numberOfLines={1}
-                                  >
-                                    {item?.name}
-                                  </Text>
+                                <View className="absolute bottom-0 left-0 right-0 rounded-b-lg overflow-hidden">
+                                  <LinearGradient colors={["transparent", "rgba(0,0,0,0.75)"]}>
+                                    <Text
+                                      numberOfLines={1}
+                                      style={styles.lotteryNameText}
+                                    >
+                                      {item?.name}
+                                    </Text>
+                                  </LinearGradient>
                                 </View>
                               )}
                             </ImageBackground>
@@ -619,5 +622,13 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#fff",
     textAlign: "center",
+  },
+  lotteryNameText: {
+    fontSize: 12,
+    color: "#fff",
+    fontWeight: "600",
+    textAlign: "center",
+    marginVertical: 6,
+    paddingHorizontal: 4,
   },
 });

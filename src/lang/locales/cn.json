@@ -142,7 +142,7 @@
     "withdraw": "提现",
     "rebate": "返水",
     "task": "任务",
-    "beDealt": "待定奖金",
+    "beDealt": "待领取",
     "specialBonus": "神秘奖金",
     "memberDay": "会员日",
     "rescueFunds": "救援金",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "转账信息",
       "rechargeAmount": "充值金额",
       "skipPromotion": "不要参加",
+      "bonusPoints": "奖金",
       "receiveName": "姓名",
       "bankCard": "账号",
       "rate": "USDT 汇率",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "普通提现",
       "crypto": "虚拟币提现",
-      "pix": "PIX提现"
+      "pix": "PIX提现",
+      "thirdPartyWallet": "三方钱包",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "刷新",
     "balance": "余额",

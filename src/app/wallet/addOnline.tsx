@@ -30,6 +30,10 @@ export default function addOnline() {
   const [options, setOptions] = useState<Array<any>>([]);
   const [selectedOption, selectOption] = useState<any>(null);
   const bankType = useMemo(() => params?.type ?? 3, [params]);
+  const tunnelCode = useMemo(() => {
+    const raw = params?.tunnelCode;
+    return Array.isArray(raw) ? raw[0] : raw;
+  }, [params?.tunnelCode]);
 
   const toggle = () => {
     if (selectedOption == null) {
@@ -103,13 +107,15 @@ export default function addOnline() {
   };
 
   useEffect(() => {
-    fetchBankListInfo({ type: bankType }).then(({ bankSelectOptions }) => {
-      if (bankSelectOptions && Array.isArray(bankSelectOptions)) {
-        setOptions(bankSelectOptions);
-        if (bankSelectOptions.length > 0) selectOption(bankSelectOptions[0])
-      }
-    });
-  }, [bankType]);
+    fetchBankListInfo({ type: bankType, ...(tunnelCode ? { tunnelCode } : {}) }).then(
+      ({ bankSelectOptions }) => {
+        if (bankSelectOptions && Array.isArray(bankSelectOptions)) {
+          setOptions(bankSelectOptions);
+          if (bankSelectOptions.length > 0) selectOption(bankSelectOptions[0]);
+        }
+      },
+    );
+  }, [bankType, tunnelCode]);
 
   return (
     <SafeAreaView className="flex-1">

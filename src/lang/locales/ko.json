@@ -142,7 +142,7 @@
     "withdraw": "철회하다",
     "rebate": "캐시\n백",
     "task": "일",
-    "beDealt": "처리중\n보너스",
+    "beDealt": "수령 대기",
     "specialBonus": "미스터리\n보너스",
     "memberDay": "회원\n데이",
     "rescueFunds": "구조 자금",
@@ -579,6 +579,7 @@
       "transferInfoTitle": "환승정보",
       "rechargeAmount": "입금액",
       "skipPromotion": "참여하지 마십시오",
+      "bonusPoints": "보너스",
       "receiveName": "이름",
       "bankCard": "계정",
       "rate": "USDT 환율",
@@ -671,7 +672,9 @@
     "withdrawType": {
       "normal": "일반출금",
       "crypto": "암호화폐 출금",
-      "pix": "PIX 출금"
+      "pix": "PIX 출금",
+      "thirdPartyWallet": "제3자 지갑",
+      "frePay": "C2C(FrePay)"
     },
     "oneClickRecovery": "새로 고치다",
     "balance": "균형",
